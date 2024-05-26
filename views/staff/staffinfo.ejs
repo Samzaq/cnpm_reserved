@@ -1,0 +1,112 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <div class="header">
+    <div class="circle">
+      <div class="text">W</div>
+    </div>
+    <div>
+      <form action="/thongtin" method="POST">
+        <input
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="THÔNG TIN"
+        />
+      </form>
+    </div>
+    <div>
+      <form action="/tiepnhansanh" method="POST">
+        <input
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="TIẾP NHẬN SẢNH"
+        />
+      </form>
+    </div>
+    <div>
+      <form action="/tracuu" method="POST">
+        <input
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="TRA CỨU"
+        />
+      </form>
+    </div>
+    <div>
+      <form action="/laphoadon" method="POST">
+        <input
+          id="short1"
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="LẬP HÓA ĐƠN THANH TOÁN"
+        />
+      </form>
+    </div>
+    <div>
+      <form action="/thaydoiquydinh" method="POST">
+        <input
+          id="short2"
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="THAY ĐỔI QUI ĐỊNH"
+        />
+      </form>
+    </div>
+    <div>
+      <form action="/lapbaocao" method="POST">
+        <input
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="LẬP BÁO CÁO"
+        />
+      </form>
+    </div>
+    <form action="/signout" method="POST">
+      <input
+        class="headertext"
+        type="image"
+        name="thaydoi"
+        src="staff/signout.svg"
+        alt=""
+      />
+    </form>
+  </div>
+  <div class="rest">
+    <img class="profile" src="staff/profile.svg" alt="" />
+    <div class="info">
+      <div class="banner">THÔNG TIN NHÂN VIÊN</div>
+      <div class="table">
+        <div>
+          <div class="tabletext">Tên nhân viên:</div>
+          <div class="showinfo">
+            <% if (locals.hovaten) { %> <%= hovaten %> <% } %>
+          </div>
+        </div>
+        <div>
+          <div class="tabletext">Email:</div>
+          <div class="showinfo">
+            <% if (locals.hovaten) { %> <%= email %> <% } %>
+          </div>
+        </div>
+        <div>
+          <div class="tabletext">Tên đăng nhập:</div>
+          <div class="showinfo">
+            <% if (locals.hovaten) { %> <%= name %> <% } %>
+          </div>
+        </div>
+        <div>
+          <div class="tabletext">SĐT:</div>
+          <div class="showinfo">
+            <% if (locals.hovaten) { %> <%= sdt %> <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

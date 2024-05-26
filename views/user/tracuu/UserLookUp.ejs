@@ -1,0 +1,137 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <form id="form-lookup" data-method="POST">
+      <div class="main-box">
+        <div class="left-box">
+          <div class="input-group">
+            <div class="label">Tên chú rể</div>
+            <div class="input">
+              <input
+                type="text"
+                name="groomName "
+                style="width: 100%; height: 46px; font-size: 24px"
+              />
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="label">Tên cô dâu</div>
+            <div class="input">
+              <input
+                type="text"
+                name="brideName"
+                style="width: 100%; height: 46px; font-size: 24px"
+              />
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="label">Sảnh</div>
+            <div class="input">
+              <select
+                style="
+                  width: 100%;
+                  height: 46px;
+                  font-size: 24px;
+                  border: none;
+                  outline: none;
+                  background: transparent;
+                "
+                required
+              >
+                <option value="" disabled selected hidden>All</option>
+                <option value="loai1">Sảnh abc</option>
+                <option value="loai2">Sảnh xyz</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="right-box">
+          <div class="input-group">
+            <div class="label">Số lượng bàn</div>
+            <div class="input">
+              <input
+                ypet="number"
+                name="tableCount"
+                style="width: 100%; height: 46px; font-size: 24px"
+              />
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="label">Ngày đãi tiệc:</div>
+            <div class="input">
+              <input
+                type="date"
+                name="partyDate"
+                style="width: 100%; height: 46px; font-size: 24px"
+              />
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="label">Ca</div>
+            <div class="input">
+              <select
+                style="
+                  width: 100%;
+                  height: 46px;
+                  font-size: 24px;
+                  border: none;
+                  outline: none;
+                  background: transparent;
+                "
+                required
+              >
+                <option value="" disabled selected hidden>All</option>
+                <option value="loai1">Ca 1</option>
+                <option value="loai2">Ca 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        type="submit"
+        for="form-lookup"
+        style="
+          padding: 10px 20px;
+          background-color: #f25287;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 600px;
+          font-size: 24px;
+        "
+      >
+        TRA CỨU
+      </button>
+    </form>
+    <table
+      class="table"
+      id="lookup"
+      style="
+        margin-top: 50px;
+        width: 1350px;
+        padding-right: 1px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 3px #c3c3c3 solid;
+        border-bottom: 3px #8d8d8d solid;
+      "
+    >
+      <thead>
+        <tr>
+          <th>Số thứ tự</th>
+          <th>Tên chú rể</th>
+          <th>Tên cô dâu</th>
+          <th>Sảnh</th>
+          <th>Ngày</th>
+          <th>Giờ</th>
+          <th>Số lượng bàn</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

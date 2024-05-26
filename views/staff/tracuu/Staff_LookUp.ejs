@@ -1,0 +1,217 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+  <div class="rest">
+    <div class="wrapper-lookup">
+      <!-- <form id="form-lookup" data-method="POST"> -->
+      <div class="row">
+        <span>
+          <label for="groom-name">Tên chú rể:</label>
+          <input
+            class="form-control multi-filter"
+            type="text"
+            id="groom-name"
+            placeholder="Default is all"
+          />
+        </span>
+        <span>
+          <label for="num-table">Số lượng bàn:</label>
+          <input
+            class="form-control multi-filter"
+            type="number"
+            id="num-table"
+            min="1"
+            placeholder="Default is all"
+          />
+        </span>
+      </div>
+      <div class="row">
+        <span>
+          <label for="bride-name">Tên cô dâu:</label>
+          <input
+            class="form-control multi-filter"
+            type="text"
+            id="bride-name"
+            placeholder="Default is all"
+          />
+        </span>
+        <span>
+          <label for="eating-date">Ngày:</label>
+          <input
+            class="form-control multi-filter"
+            type="date"
+            id="eating-date"
+          />
+        </span>
+      </div>
+      <div class="row">
+        <span>
+          <label for="lobby-name">Sảnh:</label>
+          <select class="form-select multi-filter" id="lobby-name">
+            <option value="All" selected>Tất cả</option>
+            <%for (let i = 0; i < lobby_selection.length; i++ ) {%>
+            <option value="<%= lobby_selection[i].tensanh%>">
+              <%= lobby_selection[i].tensanh%>
+            </option>
+            <% }%>
+            <!-- load du lieu dong len -->
+          </select>
+        </span>
+        <span>
+          <label for="eating-time">Giờ:</label>
+          <select class="form-select multi-filter" id="eating-time">
+            <option value="All" selected>Tất cả</option>
+            <%for (let i = 0; i < start_end_time.length; i++) {%>
+            <option
+              value="<%= start_end_time[i].giobatdau%> - <%= start_end_time[i].gioketthuc%>"
+            >
+              <%= start_end_time[i].giobatdau%> - <%=
+              start_end_time[i].gioketthuc%>
+            </option>
+            <% }%>
+          </select>
+        </span>
+      </div>
+      <!-- <button type="submit">TRA CỨU</button> -->
+      <!-- </form> -->
+    </div>
+    <table class="table" id="lookup">
+      <thead>
+        <tr>
+          <th>Số thứ tự</th>
+          <th>Tên chú rể</th>
+          <th>Tên cô dâu</th>
+          <th>Sảnh</th>
+          <th>Ngày đãi tiệc</th>
+          <th>Giờ</th>
+          <th>Số lượng bàn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < lookup_table.length; i++) {%>
+        <tr>
+          <td><%= i + 1%></td>
+          <td><%= lookup_table[i].tenchure%></td>
+          <td><%= lookup_table[i].tencodau%></td>
+          <td><%= lookup_table[i].tensanh%></td>
+          <td><%= lookup_table[i].ngaydaitiec%></td>
+          <td>
+            <%= lookup_table[i].giobatdau%> - <%= lookup_table[i].gioketthuc%>
+          </td>
+          <td><%= lookup_table[i].soluongban%></td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  // day la tbody cua cai bang
+  const $lookup_table_tbody = document
+    .getElementById("lookup")
+    .getElementsByTagName("tbody")[0];
+
+  const $all_filter_input = document.getElementsByClassName("multi-filter");
+
+  for (const each_filter_input of $all_filter_input) {
+    each_filter_input.addEventListener("input", function () {
+      ReinitTable();
+      Filter_By_Input(1, "groom-name");
+      Filter_By_Input(2, "bride-name");
+      Filter_By_Select(3, "lobby-name"); // lobby la 3 chu
+      Filter_By_Select(5, "eating-time");
+      Filter_By_Input(6, "num-table");
+    });
+  }
+
+  document
+    .getElementById("eating-date")
+    .addEventListener("change", function () {
+      // o date la "on change", k phai "on input"
+      ReinitTable();
+      Filter_By_Date(4, "eating-date");
+    });
+
+  function ReinitTable() {
+    for (const row of $lookup_table_tbody.getElementsByTagName("tr")) {
+      row.hidden = false;
+    }
+  }
+
+  function ReorderTableIndex() {
+    let index = 1;
+    for (const row of $lookup_table_tbody.getElementsByTagName("tr")) {
+      let td_index = row.getElementsByTagName("td")[0];
+      if (!row.hidden) {
+        td_index.innerText = index;
+        index += 1;
+      }
+    }
+  }
+
+  function Filter_By_Input(td_index = 1, filter_input_id) {
+    // td_index la thu tu cua cot can filter, su dung lai ham nay, truyen tham so khac vao thoi, k can viet lai nhieu ham khac nhau
+    let filter_value = document
+      .getElementById(filter_input_id)
+      .value.toLowerCase();
+    if (filter_value !== "") {
+      for (const row of $lookup_table_tbody.getElementsByTagName("tr")) {
+        let td_text = row
+          .getElementsByTagName("td")
+          [td_index].innerText.toLowerCase();
+        if (!td_text.includes(filter_value)) {
+          row.hidden = true;
+        }
+      }
+      ReorderTableIndex();
+    }
+  }
+
+  function Filter_By_Select(td_index = 3, filter_input_id) {
+    // td_index la thu tu cua cot can filter, su dung lai ham nay, truyen tham so khac vao thoi, k can viet lai nhieu ham khac nhau
+    let filter_value = document
+      .getElementById(filter_input_id)
+      .value.toLowerCase();
+    if (filter_value !== "all") {
+      for (const row of $lookup_table_tbody.getElementsByTagName("tr")) {
+        let td_text = row
+          .getElementsByTagName("td")
+          [td_index].innerText.toLowerCase();
+        if (!td_text.includes(filter_value)) {
+          row.hidden = true;
+        }
+      }
+      ReorderTableIndex();
+    }
+  }
+
+  function Filter_By_Date(td_index = 4, filter_input_id) {
+    let filter_value = document
+      .getElementById(filter_input_id)
+      .value.toLowerCase();
+    if (filter_value !== "") {
+      filter_value = moment(filter_value, "YYYY-MM-DD").format("DD-MM-YYYY");
+      for (const row of $lookup_table_tbody.getElementsByTagName("tr")) {
+        let td_text = row
+          .getElementsByTagName("td")
+          [td_index].innerText.toLowerCase();
+        if (!td_text.includes(filter_value)) {
+          row.hidden = true;
+        }
+      }
+      ReorderTableIndex();
+    }
+  }
+
+  // Hàm chuyển đổi ngày tháng sang định dạng DD-MM-YYYY
+  function formatDate(date) {
+    let day = ("0" + date.getDate()).slice(-2);
+    let month = ("0" + (date.getMonth() + 1)).slice(-2);
+    let year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  }
+</script>
+
+<%- include("partials/footer.ejs") %>

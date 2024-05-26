@@ -1,0 +1,159 @@
+<%- include("partials/header.ejs") %>
+  <!-- cai nay la cua Date format -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> 
+  <!-- cai nay la cua Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <div class="subheader">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-receipt"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z"
+        />
+        <path
+          d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5"
+        />
+      </svg>
+      <h1>Chi tiết hóa đơn</h1>
+    </div>
+
+    <div class="wrapper">
+      <div class="row">
+        <span>
+          <label for="bill-id">Mã hóa đơn:</label>
+          <input class="form-control" type="text" id="bill-id" value="<%= general_info[0].mahoadon%>" readonly />
+        </span>
+        <span>
+          <label for="bill-id">Số phiếu đặt tiệc:</label>
+          <input class="form-control" type="text" id="bill-id" value="<%= general_info[0].sophieudattiec%>"readonly />
+        </span>
+      </div>
+      <div class="row">
+        <span>
+          <label for="bill-id">Tên chú rể:</label>
+          <input class="form-control" type="text" id="bill-id" value="<%= general_info[0].tenchure%>"readonly />
+        </span>
+        <span>
+          <label for="bill-id">Số lượng bàn:</label>
+          <input class="form-control" type="number" id="bill-id" value="<%= num_table%>" readonly />
+        </span>
+      </div>
+      <div class="row">
+        <span>
+          <label for="bill-id">Tên cô dâu:</label>
+          <input class="form-control" type="text" id="bill-id" value="<%= general_info[0].tencodau%>" readonly />
+        </span>
+        <span>
+          <label for="bill-id">Đơn giá bàn:</label>
+          <input class="form-control" type="number" id="bill-id" value="<%= general_info[0].dongiaban%>" readonly />
+        </span>
+      </div>
+      <div class="row">
+        <span>
+          <label for="bill-id">Ngày đãi tiệc:</label>
+          <input class="form-control" type="text" id="bill-id" value="<%= general_info[0].ngaydaitiec%>" readonly />
+        </span>
+        <span>
+          <label for="bill-id">Tổng tiền bàn:</label>
+          <input class="form-control" type="number" id="bill-id" value="<%= general_info[0].tongtienban%>" readonly />
+        </span>
+      </div>
+    </div>
+    <table class="table" id="service-detail">
+      <thead>
+        <tr>
+          <th>Số thứ tự</th>
+          <th>Tên dịch vụ</th>
+          <th>Số lượng</th>
+          <th>Đơn giá</th>
+          <th>Thành tiền</th>
+          <th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%for (let i = 0; i < service_info.length; i++) {%>
+          <tr>
+            <td><%= i+1%></td>
+            <td><%= service_info[i].tendichvu%></td>
+            <td><%= service_info[i].soluong%></td>
+            <td><%= service_info[i].dongia%></td>
+            <td><%= service_info[i].thanhtien%></td>
+            <td><%= service_info[i].ghichu%></td>
+          </tr>
+        <%};%>
+      </tbody>
+    </table>
+    <div class="wrapper_total">
+      <span class="left">
+        <div>
+          <label for="service_price">Tổng tiền dịch vụ :</label>
+          <input class="form-control" type="number" id="service_price" value="<%= service_total_price%>"readonly />
+        </div>
+        <div>
+          <label for="bill_price">Tổng tiền hóa đơn:</label>
+          <input class="form-control" type="number" id="bill_price" value="<%= bill_total_price%>" readonly />
+        </div>
+        <div>
+          <label for="deposits">Tiền đặt cọc:</label>
+          <input class="form-control" type="number" id="deposits" value="<%= deposit%>" readonly />
+        </div>
+        <div>
+          <label for="late-fee">Phí thanh toán trễ:</label>
+          <input class="form-control" type="number" id="late-fee" value="<%= late_fee%>" readonly />
+        </div>
+        <div>
+          <label for="remaining">Còn lại:</label>
+          <input class="form-control" type="number" id="remaining" value="<%= remaining_money%>" readonly />
+        </div>
+      </span>
+
+      <span class="right">
+        <div>
+          <label for="paying-date">Ngày thanh toán:</label>
+          <input class="form-control" type="text" id="paying-date" value ="<%= paying_date[0].ngaythanhtoan%>" readonly />
+        </div>
+        <button type="button" id="export-to-sheet-btn">XUẤT HÓA ĐƠN</button>
+        <form action="/laphoadon" method="POST">
+          <input id="btn_exit" value="THOÁT" type="submit" />
+        </form>
+      </span>
+    </div>
+  </div>
+</div>
+<script>
+   document.getElementById('export-to-sheet-btn').addEventListener('click', function() {
+    if (confirm("Save file as export_table.xlsx!")) {
+      let general_info = [];
+          general_info.push({
+            'Mã hóa đơn': '<%= general_info[0].mahoadon%>',
+            'Số phiếu đặt tiệc': '<%= general_info[0].sophieudattiec%>',
+            'Tên chú rể': '<%= general_info[0].tenchure%>',
+            'Tên cô dâu': '<%= general_info[0].tencodau%>',
+            'Ngày đãi tiệc': '<%= general_info[0].ngaydaitiec%>',
+            'Số lượng bàn': '<%= num_table%>',
+            'Đơn giá bàn': '<%= general_info[0].dongiaban%>',
+            'Tổng tiền bàn': '<%= general_info[0].tongtienban%>',
+            'Tổng tiền dịch vụ': '<%= service_total_price%>',
+            'Tổng tiền hóa đơn': '<%= bill_total_price%>',
+            'Tiền đặt cọc' : '<%= deposit%>',
+            'Phí thanh toán trễ': '<%= late_fee%>',
+            'Số tiền còn lại':'<%= remaining_money%>'
+          });
+         
+      const ws = XLSX.utils.json_to_sheet(general_info);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Thông tin chung");
+      // Save the workbook to a file
+      XLSX.writeFile(wb, "HoaDonTiecCuoi.xlsx");
+    }
+  })
+</script>
+<%- include("partials/footer.ejs") %>

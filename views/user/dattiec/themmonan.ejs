@@ -1,0 +1,172 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <div class="infobar">
+      <div class="textandinput">
+        <div>Tên chú rể</div>
+        <div>
+          <input class="enter" name="groomName " />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Ca</div>
+        <div>
+          <select class="enter" required>
+            <option value="" disabled selected hidden>Chọn ca</option>
+            <option value="loai1">Ca 1</option>
+            <option value="loai2">Ca 2</option>
+          </select>
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Tên cô dâu</div>
+        <div>
+          <input class="enter" />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Sảnh</div>
+        <div>
+          <select class="enter" required>
+            <option value="" disabled selected hidden>Chọn sảnh</option>
+            <option value="loai1">Sảnh abc</option>
+            <option value="loai2">Sảnh xyz</option>
+          </select>
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Điện thoại</div>
+        <div>
+          <input class="enter" type="tel" name="phone" />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Tiền đặt cọc</div>
+        <div>
+          <input class="enter" type="number" name="deposit" />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Ngày đãi tiệc</div>
+        <div>
+          <input class="enter" type="date" name="partyDate" />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Số lượng bàn</div>
+        <div>
+          <input class="enter" type="number" name="tableQuantity" />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Số bàn dự trữ</div>
+        <div>
+          <input class="enter" type="number" name="tableCount" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Nút thêm món ăn -->
+    <form action="/userthemmonan" method="POST">
+      <button type="submit" class="AddBtnMonAn">
+        <div class="TextInTheButton">Thêm món ăn</div>
+      </button>
+    </form>
+
+    <form action="/userthemdichvu" method="POST">
+      <button type="submit" class="AddBtnDV">
+        <div class="TextInTheButton">Thêm dịch vụ</div>
+      </button>
+    </form>
+
+    <form action="/xacnhandattiec" method="POST">
+      <button type="submit" class="XacNhanBtn">
+        <div class="TextInTheButton">Đặt Tiệc</div>
+      </button>
+    </form>
+
+    <div class="popup">
+      <div class="popup-content">
+        <div class="firsttext">THÊM MÓN ĂN</div>
+        <table class="tableMA" id="MA-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên món ăn</th>
+              <th>Đơn giá</th>
+              <th>Số lượng món</th>
+              <th>Ghi chú</th>
+              <th>Chọn</th>
+            </tr>
+          </thead>
+        </table>
+        <form action="/douserthemmonan" method="post">
+          <div style="height: 400px; overflow-y: scroll">
+            <table class="tableMA" id="MA--tabdble">
+              <tbody>
+                <% for (let i = 0; i < monanOptions.length; i++) { %>
+                <tr>
+                  <td><%= i + 1 %></td>
+                  <td><%= monanOptions[i].tenmonan %></td>
+                  <td><%= monanOptions[i].dongia %></td>
+                  <td>
+                    <input type="number" name="soluongmon" min="1" value="1" />
+                  </td>
+                  <td><input type="text" name="ghichu" /></td>
+                  <td>
+                    <input type="checkbox" name="checkboxes" value="<%=i%>" />
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+          <button type="submit" class="confirm">
+            <div class="TextInTheButton">Thêm ngay</div>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>
+
+<!-- <script>
+  function prepareData() {
+    // Khởi tạo mảng để lưu thông tin món ăn được chọn
+    let selectedItems = [];
+
+    // Lặp qua các ô input trong bảng món ăn
+    document.querySelectorAll(".tableMA tbody tr").forEach((row, index) => {
+      const checkbox = row.querySelector(`input[name="select_${index}"]`);
+      if (checkbox && checkbox.checked) {
+        const itemName = row.querySelector(`td:nth-child(2)`).textContent;
+        const itemPrice = parseFloat(
+          row.querySelector(`td:nth-child(3)`).textContent
+        );
+        const quantity = parseInt(
+          row.querySelector(`input[name="quantity_${index}"]`).value
+        );
+        const note = row.querySelector(`input[name="note_${index}"]`).value;
+
+        // Tạo một đối tượng chứa thông tin món ăn và đẩy vào mảng selectedItems
+        selectedItems.push({
+          id: checkbox.value,
+          name: itemName,
+          price: itemPrice,
+          quantity: quantity,
+          note: note,
+          totalPrice: itemPrice * quantity, // Tính thành tiền
+        });
+      }
+    });
+
+    // Lưu dữ liệu vào một input hidden để gửi cùng form
+    const selectedItemsInput = document.createElement("input");
+    selectedItemsInput.type = "hidden";
+    selectedItemsInput.name = "selectedItems";
+    selectedItemsInput.value = JSON.stringify(selectedItems);
+    document.getElementById("addToCartForm").appendChild(selectedItemsInput);
+  }
+</script> -->

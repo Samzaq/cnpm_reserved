@@ -1,0 +1,129 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div
+    class="admincontain"
+    style="background: linear-gradient(217deg, #fad0c4 0%, #ffd1ff 100%)"
+  >
+    <div class="admintable">
+      <form action="/timkiemuser" method="POST">
+        <div class="bar">
+          <input
+            class="find"
+            placeholder="Tìm kiếm người dùng"
+            name="finduser"
+          />
+          <button type="submit" class="delete">TÌM KIẾM</button>
+        </div>
+      </form>
+      <form action="/chooseuseradmin" method="post">
+        <div class="bang">
+          <!-- border="2" , width="1000px" , cellpadding="5" -->
+          <table border="3" width="1000px" , cellpadding="5">
+            <tr>
+              <th class="column">QUYỀN</th>
+              <th class="column">TÊN NGƯỜI DÙNG</th>
+              <th class="column">TÊN ĐĂNG NHẬP</th>
+            </tr>
+            <% if (locals.table) { %> <% for (let i = 0; i < table.length; i++)
+            { %>
+            <tr>
+              <td class="inform"><%= table[i].manhom %></td>
+              <td style="width: 500px"><%=table[i].tennguoidung%></td>
+              <td class="inform" style="font-size: 24px">
+                <button
+                  style="
+                    width: 500px;
+                    height: 30px;
+                    position: relative;
+                    left: 10px;
+                    font-size: 24px;
+                  "
+                  type="submit"
+                  class="tabletext"
+                  name="chitiet"
+                  value="<%=table[i].tendangnhap%>"
+                >
+                  <%=table[i].tendangnhap%>
+                </button>
+              </td>
+            </tr>
+            <% } } %>
+          </table>
+        </div>
+      </form>
+    </div>
+    <div class="bao">
+      <div class="admininfo">
+        <span class="thongtin">THÔNG TIN NGƯỜI DÙNG</span>
+        <span class="whitespace">Tên người dùng:</span>
+        <div class="adminshowinfo">
+          <% if (locals.chitiet) { %> <%= chitiet[0].tennguoidung %> <%} %>
+        </div>
+        <span class="whitespace" style="top: 10px">Tên đăng nhập:</span>
+
+        <div class="adminshowinfo" style="top: -30px">
+          <% if (locals.chitiet) { %> <%= chitiet[0].tendangnhap %> <%} %>
+        </div>
+        <span class="whitespace" style="top: -20px">Mật khẩu:</span>
+        <div class="adminshowinfo" style="top: -60px">
+          <% if (locals.chitiet) { %> <%= chitiet[0].matkhau %> <%} %>
+        </div>
+        <span class="whitespace" style="top: -50px">Email:</span>
+        <div class="adminshowinfo" style="top: -90px">
+          <% if (locals.chitiet) { %> <%= chitiet[0].email %> <%} %>
+        </div>
+        <span class="whitespace" style="top: -80px">Số điện thoại:</span>
+        <div class="adminshowinfo" style="top: -120px">
+          <% if (locals.chitiet) { %> <%= chitiet[0].sdt %> <%} %>
+        </div>
+        <span class="whitespace" style="top: -110px">Quyền:</span>
+        <div class="adminshowinfo" style="top: -150px">
+          <% if (locals.chitiet) { %> <%= chitiet[0].manhom %> <%} %>
+        </div>
+
+        <div class="deleteupdate">
+          <div class="delete">
+            <form action="/deleteuser" method="POST">
+              <button
+                name="usernamexoa"
+                class="textfordelete"
+                type="submit"
+                style="background-color: #f25287; border: none"
+                value="<%if(locals.chitiet){%><%=chitiet[0].tendangnhap%><%}%>"
+              >
+                XÓA
+              </button>
+            </form>
+          </div>
+
+          <div class="delete" style="margin-left: 60px; right: 20px">
+            <form action="/updateuser" method="POST">
+              <button
+                name="usernamecapnhat"
+                class="textfordelete"
+                type="submit"
+                style="background-color: #f25287; border: none"
+                value="<%if(locals.chitiet){%><%=chitiet[0].tendangnhap%><%}%>"
+              >
+                CẬP NHẬT
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="create">
+        <form action="/createuser" method="POST">
+          <button
+            class="textfordelete"
+            type="submit"
+            style="background-color: #f25287; border: none"
+          >
+            THÊM MỚI NGƯỜI DÙNG
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

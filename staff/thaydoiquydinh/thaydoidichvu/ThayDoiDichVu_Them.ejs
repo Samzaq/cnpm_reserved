@@ -1,0 +1,148 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="under">
+    <div class="sidebar">
+      <form action="/loaisanh" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="loaisanh"
+          value="DANH SÁCH LOẠI SẢNH"
+        />
+      </form>
+      <form action="/ca" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="ca"
+          value="DANH SÁCH CA"
+        />
+      </form>
+      <form action="/monan" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="monan"
+          value="DANH SÁCH MÓN ĂN"
+        />
+      </form>
+      <form action="/dichvu" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="dichvu"
+          value="DANH SÁCH DỊCH VỤ"
+          style="color: green"
+        />
+      </form>
+      <form action="/thamso" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="thamso"
+          value="THAM SỐ KHÁC"
+        />
+      </form>
+    </div>
+    <div class="rightcontent">
+      <div class="intable">
+        <table class="danhsachsanh">
+          <tr>
+            <th>STT</th>
+            <th>MÃ DỊCH VỤ</th>
+            <th>TÊN DỊCH VỤ</th>
+            <th>ĐƠN GIÁ</th>
+            <th>TÌNH TRẠNG</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>DV01</td>
+            <td>DỊCH VỤ A</td>
+            <td>500.000</td>
+            <td>Còn phục vụ</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>DV01</td>
+            <td>DỊCH VỤ A</td>
+            <td>500.000</td>
+            <td>Còn phục vụ</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>DV01</td>
+            <td>DỊCH VỤ A</td>
+            <td>500.000</td>
+            <td>Còn phục vụ</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>DV01</td>
+            <td>DỊCH VỤ A</td>
+            <td>500.000</td>
+            <td>Còn phục vụ</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>DV01</td>
+            <td>DỊCH VỤ A</td>
+            <td>500.000</td>
+            <td>Còn phục vụ</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>DV01</td>
+            <td>DỊCH VỤ A</td>
+            <td>500.000</td>
+            <td>Còn phục vụ</td>
+          </tr>
+        </table>
+      </div>
+      <div class="buttons-container">
+        <!-- Nút Thêm -->
+        <div class="button-wrapper">
+          <form action="/themdichvu" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Thêm</button>
+          </form>
+        </div>
+        <!-- Nút Xóa -->
+        <div class="button-wrapper">
+          <form action="/xoadichvu" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Xóa</button>
+          </form>
+        </div>
+        <!-- Nút Sửa -->
+        <div class="button-wrapper">
+          <form action="/suadichvu" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Sửa</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup">
+    <div class="popup-content">
+      <div class="firsttext">THÊM DỊCH VỤ</div>
+      <div class="data">
+        <input type="text" placeholder="Mã dịch vụ" />
+        <input type="text" placeholder="Tên dịch vụ" />
+        <input type="number" placeholder="Đơn giá" />
+        <input type="number" placeholder="Tình trạng" />
+      </div>
+      <div class="themdichvu">
+        <form action="/themdichvungay" method="POST">
+          <input
+            class="passtxt"
+            type="submit"
+            name="thaydoi"
+            value="TẠO NGAY"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

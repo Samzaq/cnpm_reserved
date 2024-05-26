@@ -1,0 +1,70 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="under">
+    <div class="sidebar">
+      <form action="/loaisanh" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="loaisanh"
+          value="DANH SÁCH LOẠI SẢNH"
+        />
+      </form>
+      <form action="/ca" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="ca"
+          value="DANH SÁCH CA"
+        />
+      </form>
+      <form action="/monan" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="monan"
+          value="DANH SÁCH MÓN ĂN"
+        />
+      </form>
+      <form action="/dichvu" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="dichvu"
+          value="DANH SÁCH DỊCH VỤ"
+        />
+      </form>
+      <form action="/thamso" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="thamso"
+          value="THAM SỐ KHÁC"
+          style="color: green"
+        />
+      </form>
+    </div>
+    <div class="rightcontentthamso">
+      <div class="main-content">
+        <div class="form-group">
+          <label for="quydinhphat">Áp dụng quy định phạt:</label>
+          <select id="quydinhphat" name="quydinhphat">
+            <option value="true">Có</option>
+            <option value="false">Không</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tilephat">Tỉ lệ phạt:</label>
+          <input type="number" step="0.01" id="tilephat" name="tilephat" />
+        </div>
+        <div class="button-thaydoithamso">
+          <form action="/thaydoithamso" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">THAY ĐỔI</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

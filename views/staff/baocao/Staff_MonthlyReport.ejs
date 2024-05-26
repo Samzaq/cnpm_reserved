@@ -1,0 +1,84 @@
+
+<%- include("partials/header.ejs") %>
+  <!-- cai nay la cua Date format -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> 
+  <!-- cai nay la cua Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest_report">
+    <div class="report_contain">
+    <div class="reportleft">
+      <form  action="/baocao"  method="POST">
+        <label id="reportlabel">Thời gian báo cáo:</label>
+        <select id="months" name="months">
+          <option value="1" <% if (months == 1) { %> selected <% } %>>1</option>
+          <option value="2" <% if (months == 2) { %> selected <% } %>>2</option>
+          <option value="3" <% if (months == 3) { %> selected <% } %>>3</option>
+          <option value="4" <% if (months == 4) { %> selected <% } %>>4</option>
+          <option value="5" <% if (months == 5) { %> selected <% } %>>5</option>
+          <option value="6" <% if (months == 6) { %> selected <% } %>>6</option>
+          <option value="7" <% if (months == 7) { %> selected <% } %>>7</option>
+          <option value="8" <% if (months == 8) { %> selected <% } %>>8</option>
+          <option value="9" <% if (months == 9) { %> selected <% } %>>9</option>
+          <option value="10" <% if (months == 10) { %> selected <% } %>>10</option>
+          <option value="11" <% if (months == 11) { %> selected <% } %>>11</option>
+          <option value="12" <% if (months == 12) { %> selected <% } %>>12</option>
+        </select>
+        <input type="number" min="1" placeholder="Năm" name="nam" value="<%=nam%>"/>
+        <button type="submit" class="lapbaocaobutton">Lập báo cáo</button>
+      </form>
+    </div>
+    <div class="reportright">
+      <table class="table" id="report_table_baocao">
+        <thead>
+          <tr>
+            <th>Số thứ tự</th>
+            <th>Ngày</th>
+            <th>Số lượng tiệc cưới</th>
+            <th>Doanh thu</th>
+            <th>Tỉ lệ</th>
+          </tr>
+        </thead>
+        <% data.forEach(row => { %>
+          <tr>
+            <td><%= row.stt %></td>
+            <td><%= row.ngay %></td>
+            <td><%= row.soluongtieccuoi %></td>
+            <td><%= row.doanhthu %></td>
+            <td><%= row.tyle %></td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <label for="inputField">Tổng doanh thu (VND):</label><br/>
+      <span id="inputField" class="form-control"><%= totalDoanhThu.toLocaleString() %></span><br/>
+    </div>
+    <button id="submitButton" class="btn btn-primary">Xuất file excel</button>
+  </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('submitButton').addEventListener('click', function() {
+   if (confirm("Save file as export_table.xlsx!")) {
+     let general_info = [];
+         general_info.push({
+           'Tháng': '<%= nam%>',
+           'Năm': '<%= months%>',
+           'Tổng doanh thu': '<%= totalDoanhThu.toLocaleString() %>',
+         });
+        
+     const ws = XLSX.utils.json_to_sheet(general_info);
+     const wb = XLSX.utils.book_new();
+     XLSX.utils.book_append_sheet(wb, ws, "Báo cáo doanh thu");
+     // Save the workbook to a file
+     XLSX.writeFile(wb, "BaoCaoDoanhThu.xlsx");
+   }
+ })
+</script>
+<%- include("partials/footer.ejs") %>
+Đang hiển thị 721762044864458203.

@@ -1,0 +1,67 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <div class="wrapper-lookup">
+      <form id="form-lookup" data-method="POST">
+        <div class="row">
+          <span>
+            <label for="groom-name">Tên chú rể:</label>
+            <input class="form-control" type="text" id="groom-name" />
+          </span>
+          <span>
+            <label for="num-table">Số lượng bàn:</label>
+            <input class="form-control" type="number" id="num-table" min="1" />
+          </span>
+        </div>
+        <div class="row">
+          <span>
+            <label for="bride-name">Tên cô dâu:</label>
+            <input class="form-control" type="text" id="bride-name" />
+          </span>
+          <span>
+            <label for="eating-date">Ngày:</label>
+            <input class="form-control" type="date" id="eating-date" />
+          </span>
+        </div>
+        <div class="row">
+          <span>
+            <label for="lobby-name">Sảnh:</label>
+            <select class="form-control" id="lobby-name">
+              <option value="lobby_1">Sảnh 1</option>
+              <option value="lobby_2">Sảnh 2</option>
+              <option value="lobby_3">Sảnh 3</option>
+              <option value="lobby_4">Sảnh 4</option>
+              <option value="all-lobby">Tất cả</option>
+            </select>
+          </span>
+          <span>
+            <label for="eating-time">Giờ:</label>
+            <select class="form-control" id="eating-time">
+              <option value="time-1">Giờ gì t quên rồi</option>
+              <option value="time-2">Không nhớ nữa</option>
+              <option value="all-time">Tất cả</option>
+            </select>
+          </span>
+        </div>
+      </form>
+      <button type="submit" for="form-lookup">TRA CỨU</button>
+    </div>
+    <table class="table" id="lookup">
+      <thead>
+        <tr>
+          <th>Số thứ tự</th>
+          <th>Tên chú rể</th>
+          <th>Tên cô dâu</th>
+          <th>Sảnh</th>
+          <th>Ngày</th>
+          <th>Giờ</th>
+          <th>Số lượng bàn</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

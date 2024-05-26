@@ -1,0 +1,111 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <h1>Danh sách hóa đơn</h1>
+    <div class="search-bill-id">
+      <form id="form-search-bill-id" data-method="POST">
+        <input type="text" placeholder="Tìm kiếm theo mã hóa đơn: " />
+      </form>
+      <button type="submit" for="form-search-bill-id">Tìm kiếm</button>
+    </div>
+
+    <table class="table" id="list-bill-table">
+      <thead>
+        <tr>
+          <th>Mã hóa đơn</th>
+          <th>Số phiếu đặt tiệc</th>
+          <th>Sảnh</th>
+          <th>Ngày đặt tiệc</th>
+          <th>Ngày đãi tiệc</th>
+          <th>Tình trạng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (locals.table_data) { %> <% for (let i = 0; i < table_data.length;
+        i++) { %>
+        <tr>
+          <td><%= table_data[i].code %></td>
+          <td><%= table_data[i].order_number %></td>
+          <td><%= table_data[i].lobby %></td>
+          <td><%= table_data[i].booking_date %></td>
+          <td><%= table_data[i].eating_date %></td>
+          <td>
+            <div class="hoverbutton">
+              <form action="/chitiethoadon" method="POST">
+                <button type="submit" class="buttontext">
+                  <%= table_data[i].status %>
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        <% }} %>
+      </tbody>
+    </table>
+    <!-- <script>
+      let table_data = [
+        {
+          code: "HD01",
+          order_number: "P001",
+          lobby: "Bạch Kim I",
+          booking_date: "10/3/2024",
+          eating_date: "20/4/2024",
+          status: "Chưa thanh toán",
+        },
+        {
+          code: "HD02",
+          order_number: "P002",
+          lobby: "Bạch Kim II",
+          booking_date: "15/3/2024",
+          eating_date: "22/4/2024",
+          status: "Chưa thanh toán",
+        },
+        {
+          code: "HD03",
+          order_number: "P003",
+          lobby: "Bạch Kim III",
+          booking_date: "10/4/2024",
+          eating_date: "24/4/2024",
+          status: "Đã thanh toán",
+        },
+        {
+          code: "HD04",
+          order_number: "P004",
+          lobby: "Tinh Anh I",
+          booking_date: "29/4/2024",
+          eating_date: "15/5/2024",
+          status: "Chưa thanh toán",
+        },
+        {
+          code: "HD05",
+          order_number: "P005",
+          lobby: "Ruby I",
+          booking_date: "10/5/2024",
+          eating_date: "1/6/2024",
+          status: "Đã thanh toán",
+        },
+      ]; // day la Data ma Back-end gui len UI
+      let table_tbody = document
+        .getElementById("list-bill-table")
+        .getElementsByTagName("tbody")[0];
+
+      for (let i = 0; i < table_data.length; i++) {
+        let row = table_tbody.insertRow();
+        let cell1 = row.insertCell();
+        cell1.innerHTML = table_data[i]?.["code"]; // cho nay dung ?.['...'] (neu khong co field 'code' thi trar ve underfined. Con em .code (neu k cos 'code' se bi loi chuong trinh))
+        let cell2 = row.insertCell();
+        cell2.innerHTML = table_data[i]?.["order_number"];
+        let cell3 = row.insertCell();
+        cell3.innerHTML = table_data[i]?.["lobby"];
+        let cell4 = row.insertCell();
+        cell4.innerHTML = table_data[i]?.["booking_date"];
+        let cell5 = row.insertCell();
+        cell5.innerHTML = table_data[i]?.["eating_date"];
+        let cell6 = row.insertCell();
+        cell6.innerHTML = table_data[i]?.["status"];
+      }
+    </script> -->
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

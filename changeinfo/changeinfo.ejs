@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <div class="infobar">
+      <div class="textandinput">
+        <div>Họ và tên</div>
+        <div>
+          <input name="tennguoidung" class="enter" placeholder="Họ và tên" />
+        </div>
+      </div>
+
+      <div class="textandinput">
+        <div>Email</div>
+        <div>
+          <input name="email" class="enter" placeholder="Email" />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Số điện thoại</div>
+        <div>
+          <input name="sdt" class="enter" placeholder="Số điện thoại" />
+        </div>
+      </div>
+    </div>
+    <div class="changepassbtn">
+      <form action="/confirminfochange" method="POST">
+        <input
+          class="passtxt"
+          id="short1"
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="Cập nhật"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

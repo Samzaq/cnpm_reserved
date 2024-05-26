@@ -1,0 +1,135 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="under">
+    <div class="sidebar">
+      <form action="/loaisanh" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="loaisanh"
+          value="DANH SÁCH LOẠI SẢNH"
+        />
+      </form>
+      <form action="/ca" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="ca"
+          value="DANH SÁCH CA"
+        />
+      </form>
+      <form action="/monan" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="monan"
+          value="DANH SÁCH MÓN ĂN"
+        />
+      </form>
+      <form action="/dichvu" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="dichvu"
+          value="DANH SÁCH DỊCH VỤ"
+          style="color: green"
+        />
+      </form>
+      <form action="/thamso" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="thamso"
+          value="THAM SỐ KHÁC"
+        />
+      </form>
+    </div>
+    <div class="rightcontent">
+      <div class="intable">
+        <table class="danhsachsanh">
+          <tr>
+            <th>STT</th>
+            <th>MÃ DỊCH VỤ</th>
+            <th>TÊN DỊCH VỤ</th>
+            <th>ĐƠN GIÁ</th>
+            <th>TÌNH TRẠNG</th>
+          </tr>
+          <% for (let i = 0; i < table.length; i++) { %>
+            <tr>
+              <td><%= i + 1 %></td>
+              <td><%= table[i].madichvu %></td>
+              <td><%= table[i].tendichvu %></td>
+              <td><%= table[i].dongia %></td>
+              <td><%= table[i].tinhtrang %></td>
+            </tr>
+            <% } %>
+        </table>
+      </div>
+      <div class="buttons-container">
+        <!-- Nút Thêm -->
+        <div class="button-wrapper">
+          <form action="/themdichvu" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Thêm</button>
+          </form>
+        </div>
+        <!-- Nút Xóa -->
+        <div class="button-wrapper">
+          <form action="/xoadichvu" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Xóa</button>
+          </form>
+        </div>
+        <!-- Nút Sửa -->
+        <div class="button-wrapper">
+          <form action="/suadichvu" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Sửa</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup">
+    <div class="popup-content">
+      <div
+      style="
+        position: absolute;
+        margin-left: 500px;
+        z-index: 1;
+        margin-bottom: 250px;
+      "
+      >
+      <form action="/dichvu" method="POST">
+        <input type="image" name="thaydoi" src="staff/cross.svg" alt="" />
+      </form>
+      </div>
+      <div class="firsttext">XÓA DỊCH VỤ</div>
+      <form action="/xoadichvungay" method="POST">
+        <div class="data">
+          <select name="madichvu">
+            <option value="" disabled selected hidden>Mã dịch vụ</option>
+            <% MDV.forEach(function(row) { %>
+              <option value="<%= row.madichvu %>"><%= row.madichvu %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div class="xoadichvu">
+          <input
+            class="passtxt"
+            type="submit"
+            name="thaydoi"
+            value="XÓA NGAY"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  <% if (locals.errorFromServer) { %>
+    alert("Đã xảy ra lỗi: <%= errorFromServer %>");
+  <% } %>
+</script>
+<%- include("partials/footer.ejs") %>

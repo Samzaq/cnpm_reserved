@@ -1,0 +1,2481 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <div class="main-box">
+      <div class="left-box">
+        <div class="input-group">
+          <div class="label">Tên chú rể</div>
+          <div class="input">
+            <input
+              type="text"
+              name="groomName "
+              style="width: 100%; height: 46px; font-size: 24px"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="label">Tên cô dâu</div>
+          <div class="input">
+            <input
+              type="text"
+              name="brideName"
+              style="width: 100%; height: 46px; font-size: 24px"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="label">Điện thoại</div>
+          <div class="input">
+            <input
+              type="tel"
+              name="phone"
+              style="width: 100%; height: 46px; font-size: 24px"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="label">Ngày đãi tiệc:</div>
+          <div class="input">
+            <input
+              type="date"
+              name="partyDate"
+              style="width: 100%; height: 46px; font-size: 24px"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="label">Số bàn dự trữ</div>
+          <div class="input">
+            <input
+              ypet="number"
+              name="tableCount"
+              style="width: 100%; height: 46px; font-size: 24px"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="right-box">
+        <div class="input-group">
+          <div class="label">Ca</div>
+          <div class="input">
+            <select
+              style="
+                width: 100%;
+                height: 46px;
+                font-size: 24px;
+                border: none;
+                outline: none;
+                background: transparent;
+              "
+              required
+            >
+              <option value="" disabled selected hidden>Chọn ca</option>
+              <option value="loai1">Ca 1</option>
+              <option value="loai2">Ca 2</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="label">Sảnh</div>
+          <div class="input">
+            <select
+              style="
+                width: 100%;
+                height: 46px;
+                font-size: 24px;
+                border: none;
+                outline: none;
+                background: transparent;
+              "
+              required
+            >
+              <option value="" disabled selected hidden>Chọn sảnh</option>
+              <option value="loai1">Sảnh abc</option>
+              <option value="loai2">Sảnh xyz</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="label">Tiền đặt cọc</div>
+          <div class="input">
+            <input
+              type="number"
+              name="deposit"
+              style="width: 100%; height: 46px; font-size: 24px"
+            />
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="label">Số lượng bàn</div>
+          <div class="input">
+            <input
+              type="number"
+              name="tableQuantity"
+              style="width: 100%; height: 46px; font-size: 24px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nút thêm món ăn -->
+    <form action="/userthemmonan" method="POST">
+      <button type="submit" class="AddBtnMonAn">
+        <div class="TextInTheButton">Thêm món ăn</div>
+      </button>
+    </form>
+
+    <div
+      style="
+        width: 1205px;
+        height: 197px;
+        padding-right: 1px;
+        left: 115px;
+        top: 850px;
+        position: absolute;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 3px #c3c3c3 solid;
+        justify-content: flex-start;
+        align-items: flex-start;
+        display: inline-flex;
+      "
+    >
+      <div
+        style="
+          width: 109px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            width: 109px;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            STT
+          </div>
+        </div>
+        <div
+          style="
+            width: 109px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 43px;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            1
+          </div>
+        </div>
+        <div
+          style="
+            width: 109px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 43px;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            2
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 199px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            align-self: stretch;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Tên món ăn
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            Mực
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            Gà
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 155px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            align-self: stretch;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Đơn giá
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            100.000
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            200.000
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 141px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            align-self: stretch;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Ghi chú
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 107px;
+              align-self: stretch;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            ko có
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 107px;
+              align-self: stretch;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            ko có
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 229px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            align-self: stretch;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Số lượng món ăn
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            10
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            20
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 209px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            width: 209px;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Thành tiền
+          </div>
+        </div>
+        <div
+          style="
+            width: 209px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            1.000.000
+          </div>
+        </div>
+        <div
+          style="
+            width: 209px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            2.000.000
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 163px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            width: 163px;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+          "
+        ></div>
+        <div
+          style="
+            width: 163px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              padding: 5px;
+              background: #f25287;
+              border-radius: 10px;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 10px;
+              display: flex;
+            "
+          >
+            <div
+              style="
+                width: 98.27px;
+                height: 18px;
+                text-align: center;
+                color: white;
+                font-size: 13px;
+                font-family: Inter;
+                font-weight: 800;
+                word-wrap: break-word;
+              "
+            >
+              XÓA
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              padding: 5px;
+              background: #f25287;
+              border-radius: 10px;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 10px;
+              display: flex;
+            "
+          >
+            <div
+              style="
+                width: 98.27px;
+                height: 18px;
+                text-align: center;
+                color: white;
+                font-size: 13px;
+                font-family: Inter;
+                font-weight: 800;
+                word-wrap: break-word;
+              "
+            >
+              XÓA
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form action="/userthemdichvu" method="POST">
+      <button type="submit" class="AddBtnDV">
+        <div class="TextInTheButton">Thêm dịch vụ</div>
+      </button>
+    </form>
+
+    <div
+      style="
+        width: 1205px;
+        height: 197px;
+        padding-right: 1px;
+        left: 115px;
+        top: 1150px;
+        position: absolute;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 3px #c3c3c3 solid;
+        justify-content: flex-start;
+        align-items: flex-start;
+        display: inline-flex;
+      "
+    >
+      <div
+        style="
+          width: 109px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            width: 109px;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            STT
+          </div>
+        </div>
+        <div
+          style="
+            width: 109px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 43px;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            1
+          </div>
+        </div>
+        <div
+          style="
+            width: 109px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 43px;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            2
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 199px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            align-self: stretch;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Tên dịch vụ
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            Mực
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            Gà
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 155px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            align-self: stretch;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Đơn giá
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            100.000
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            200.000
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 141px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            align-self: stretch;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Ghi chú
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 107px;
+              align-self: stretch;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            ko có
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 107px;
+              align-self: stretch;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            ko có
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 229px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            align-self: stretch;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              width: 189px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Số lượng
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            10
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              flex: 1 1 0;
+              height: 29px;
+              text-align: center;
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            20
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 209px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            width: 209px;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 500;
+              word-wrap: break-word;
+            "
+          >
+            Thành tiền
+          </div>
+        </div>
+        <div
+          style="
+            width: 209px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            1.000.000
+          </div>
+        </div>
+        <div
+          style="
+            width: 209px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              color: black;
+              font-size: 24px;
+              font-family: Inter;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            2.000.000
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          width: 163px;
+          height: 197px;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          display: inline-flex;
+        "
+      >
+        <div
+          style="
+            width: 163px;
+            height: 89px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+          "
+        ></div>
+        <div
+          style="
+            width: 163px;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              padding: 5px;
+              background: #f25287;
+              border-radius: 10px;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 10px;
+              display: flex;
+            "
+          >
+            <div
+              style="
+                width: 98.27px;
+                height: 18px;
+                text-align: center;
+                color: white;
+                font-size: 13px;
+                font-family: Inter;
+                font-weight: 800;
+                word-wrap: break-word;
+              "
+            >
+              XÓA
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            align-self: stretch;
+            height: 54px;
+            padding-left: 24px;
+            padding-right: 24px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background: #ebebeb;
+            border-bottom: 3px #8d8d8d solid;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="
+              padding: 5px;
+              background: #f25287;
+              border-radius: 10px;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 10px;
+              display: flex;
+            "
+          >
+            <div
+              style="
+                width: 98.27px;
+                height: 18px;
+                text-align: center;
+                color: white;
+                font-size: 13px;
+                font-family: Inter;
+                font-weight: 800;
+                word-wrap: break-word;
+              "
+            >
+              XÓA
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form action="/xacnhandattiec" method="POST">
+      <button type="submit" class="XacNhanBtn">
+        <div class="TextInTheButton">Đặt Tiệc</div>
+      </button>
+    </form>
+
+    <div class="popup">
+      <div style="width: 1184px; height: 550px; position: relative">
+        <div
+          style="
+            width: 1184px;
+            height: 550px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            background: linear-gradient(217deg, #fad0c4 0%, #ffd1ff 100%);
+            border-radius: 23px;
+          "
+        ></div>
+        <div
+          style="
+            width: 715.63px;
+            height: 34.49px;
+            left: 235.19px;
+            top: 24.51px;
+            position: absolute;
+            text-align: center;
+            color: black;
+            font-size: 28px;
+            font-family: Inter;
+            font-weight: 800;
+            word-wrap: break-word;
+          "
+        >
+          THÊM MÓN ĂN
+        </div>
+        <div
+          style="
+            width: 1003.08px;
+            height: 67.16px;
+            left: 78.4px;
+            top: 456.99px;
+            position: absolute;
+          "
+        >
+          <div
+            style="
+              width: 1003.08px;
+              height: 67.16px;
+              left: 0px;
+              top: 0px;
+              position: absolute;
+              background: #f25287;
+              border-radius: 10px;
+            "
+          ></div>
+
+          <form action="/dattiec" method="POST">
+            <button
+              type="submit"
+              style="
+                left: 402.73px;
+                top: 16.34px;
+                position: absolute;
+                text-align: center;
+                color: white;
+                font-size: 24px;
+                font-family: Inter;
+                font-weight: 800;
+                word-wrap: break-word;
+              "
+            >
+              <div>THÊM NGAY</div>
+            </button>
+          </form>
+
+          <!-- <div style="left: 402.73px; top: 16.34px; position: absolute; text-align: center; color: white; font-size:24px ; font-family: Inter; font-weight: 800; word-wrap: break-word">THÊM NGAY</div> -->
+        </div>
+        <div
+          style="
+            width: 82.42px;
+            height: 37.21px;
+            padding-left: 19.54px;
+            padding-right: 19.54px;
+            padding-top: 8.82px;
+            padding-bottom: 8.82px;
+            left: 1081.48px;
+            top: 6.35px;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            display: inline-flex;
+          "
+        >
+          <div
+            style="width: 43.34px; height: 19.57px; background: #808080"
+          ></div>
+        </div>
+        <div
+          class="Tablethemmonan"
+          style="
+            width: 998px;
+            height: 197px;
+            padding-right: 1px;
+            left: 93px;
+            top: 141px;
+            position: absolute;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px #c3c3c3 solid;
+            justify-content: flex-start;
+            align-items: flex-start;
+            display: inline-flex;
+          "
+        >
+          <div
+            class="Column"
+            style="
+              width: 109px;
+              height: 197px;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              display: inline-flex;
+            "
+          >
+            <div
+              class="TableCell"
+              style="
+                width: 109px;
+                height: 89px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="Stt"
+                style="
+                  flex: 1 1 0;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 500;
+                  word-wrap: break-word;
+                "
+              >
+                STT
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                width: 109px;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                style="
+                  width: 43px;
+                  height: 29px;
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                1
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                width: 109px;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                style="
+                  width: 43px;
+                  height: 29px;
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                2
+              </div>
+            </div>
+          </div>
+          <div
+            class="Column"
+            style="
+              width: 181px;
+              height: 197px;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              display: inline-flex;
+            "
+          >
+            <div
+              class="TableCell"
+              style="
+                align-self: stretch;
+                height: 89px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="TNMNN"
+                style="
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 500;
+                  word-wrap: break-word;
+                "
+              >
+                Tên món ăn
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="MC"
+                style="
+                  flex: 1 1 0;
+                  height: 29px;
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                Mực
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="G"
+                style="
+                  flex: 1 1 0;
+                  height: 29px;
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                Gà
+              </div>
+            </div>
+          </div>
+          <div
+            class="Column"
+            style="
+              width: 155px;
+              height: 197px;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              display: inline-flex;
+            "
+          >
+            <div
+              class="TableCell"
+              style="
+                align-self: stretch;
+                height: 89px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="NGi"
+                style="
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 500;
+                  word-wrap: break-word;
+                "
+              >
+                Đơn giá
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="000"
+                style="
+                  flex: 1 1 0;
+                  height: 29px;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                100.000
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="000"
+                style="
+                  flex: 1 1 0;
+                  height: 29px;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                200.000
+              </div>
+            </div>
+          </div>
+          <div
+            class="Column"
+            style="
+              width: 131px;
+              height: 197px;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              display: inline-flex;
+            "
+          >
+            <div
+              class="TableCell"
+              style="
+                align-self: stretch;
+                height: 89px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="GhiCh"
+                style="
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 500;
+                  word-wrap: break-word;
+                "
+              >
+                Ghi chú
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="KoC"
+                style="
+                  width: 107px;
+                  align-self: stretch;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                ko có
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="KoC"
+                style="
+                  width: 107px;
+                  align-self: stretch;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                ko có
+              </div>
+            </div>
+          </div>
+          <div
+            class="Column"
+            style="
+              width: 193px;
+              height: 197px;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              display: inline-flex;
+            "
+          >
+            <div
+              class="TableCell"
+              style="
+                align-self: stretch;
+                height: 89px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="SLNgMNN"
+                style="
+                  width: 193px;
+                  height: 29px;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 500;
+                  word-wrap: break-word;
+                "
+              >
+                Số lượng món ăn
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                style="
+                  flex: 1 1 0;
+                  height: 29px;
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                ...
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                style="
+                  flex: 1 1 0;
+                  height: 29px;
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                ...
+              </div>
+            </div>
+          </div>
+          <div
+            class="Column"
+            style="
+              width: 127px;
+              height: 197px;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              display: inline-flex;
+            "
+          >
+            <div
+              class="TableCell"
+              style="
+                width: 127px;
+                height: 89px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="GhiCh"
+                style="
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 500;
+                  word-wrap: break-word;
+                "
+              >
+                Ghi chú
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                width: 127px;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                style="
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                ...
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                width: 127px;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                style="
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 400;
+                  word-wrap: break-word;
+                "
+              >
+                ...
+              </div>
+            </div>
+          </div>
+          <div
+            class="Column"
+            style="
+              width: 102px;
+              height: 197px;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              display: inline-flex;
+            "
+          >
+            <div
+              class="TableCell"
+              style="
+                align-self: stretch;
+                height: 89px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                padding-right: 24px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="ChN"
+                style="
+                  text-align: center;
+                  color: black;
+                  font-size: 24px;
+                  font-family: Inter;
+                  font-weight: 500;
+                  word-wrap: break-word;
+                "
+              >
+                Chọn
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                width: 102px;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="CheckBox"
+                style="width: 35px; height: 35px; position: relative"
+              >
+                <div
+                  class="BoundingBox"
+                  style="
+                    width: 35px;
+                    height: 35px;
+                    left: 0px;
+                    top: 0px;
+                    position: absolute;
+                    background: #d9d9d9;
+                  "
+                ></div>
+                <div
+                  class="CheckBoxOutlineBlank"
+                  style="
+                    width: 26.25px;
+                    height: 26.25px;
+                    left: 4.38px;
+                    top: 4.38px;
+                    position: absolute;
+                    background: #f25287;
+                  "
+                ></div>
+              </div>
+            </div>
+            <div
+              class="ITmCell"
+              style="
+                align-self: stretch;
+                height: 54px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background: #ebebeb;
+                border-bottom: 3px #8d8d8d solid;
+                justify-content: center;
+                align-items: center;
+                gap: 12px;
+                display: inline-flex;
+              "
+            >
+              <div
+                class="CheckBox"
+                style="width: 35px; height: 35px; position: relative"
+              >
+                <div
+                  class="BoundingBox"
+                  style="
+                    width: 35px;
+                    height: 35px;
+                    left: 0px;
+                    top: 0px;
+                    position: absolute;
+                    background: #d9d9d9;
+                  "
+                ></div>
+                <div
+                  class="CheckBoxOutlineBlank"
+                  style="
+                    width: 26.25px;
+                    height: 26.25px;
+                    left: 4.38px;
+                    top: 4.38px;
+                    position: absolute;
+                    background: #f25287;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

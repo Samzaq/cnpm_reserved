@@ -1,0 +1,158 @@
+<%- include("partials/header.ejs") %>
+<div class="container" style="filter: blur(5px)">
+  <%- include("partials/headerbar.ejs") %>
+  <div
+    class="admincontain"
+    style="background: linear-gradient(217deg, #fad0c4 0%, #ffd1ff 100%)"
+  >
+    <div class="admintable">
+      <div class="thanhtiemkiem">
+        <div class="find">
+          <span style="position: relative; left: 15px; top: 5px"
+            >Tìm kiếm theo tên đăng nhập</span
+          >
+        </div>
+        <div class="delete" style="position: relative; top: 13px">
+          <span class="textfordelete">TÌM KIẾM</span>
+        </div>
+      </div>
+      <div class="bang">
+        <table border="2" , width="1000px" , cellpadding="5">
+          <tr>
+            <th class="column">QUYỀN</th>
+            <th class="column">TÊN NGƯỜI DÙNG</th>
+            <th class="column">TÊN ĐĂNG NHẬP</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="bao">
+      <div class="admininfo">
+        <span class="thongtin">THÔNG TIN NGƯỜI DÙNG</span>
+        <span class="whitespace">Tên người dùng:</span>
+        <div class="adminshowinfo">
+          <% if (locals.hovaten) { %> <%= hovaten %> <% } %>
+        </div>
+        <span class="whitespace" style="top: 10px">Tên đăng nhập:</span>
+        <div class="adminshowinfo" style="top: -30px">
+          <% if (locals.username) { %> <%= username %> <% } %>
+        </div>
+        <span class="whitespace" style="top: -20px">Mật khẩu:</span>
+        <div class="adminshowinfo" style="top: -60px">
+          <% if (locals.hovaten) { %> <%= hovaten %> <% } %>
+        </div>
+        <span class="whitespace" style="top: -50px">Email:</span>
+        <div class="adminshowinfo" style="top: -90px">
+          <!-- <% if (locals.email) { %> <%= email %> <% } %> -->
+        </div>
+        <span class="whitespace" style="top: -80px">Số điện thoại:</span>
+        <div class="adminshowinfo" style="top: -120px">
+          <% if (locals.sdt) { %> <%= sdt %> <% } %>
+        </div>
+        <span class="whitespace" style="top: -110px">Quyền:</span>
+        <div class="adminshowinfo" style="top: -150px">
+          <!-- <% if (locals.sdt) { %> <%= sdt %> <% } %> -->
+        </div>
+        <div class="deleteupdate">
+          <div class="delete">
+            <span class="textfordelete">XÓA</span>
+          </div>
+          <div class="delete" style="margin-left: 60px; right: 20px">
+            <span class="textfordelete">CẬP NHẬT</span>
+          </div>
+        </div>
+      </div>
+      <div class="create">
+        <span class="textfordelete">THÊM MỚI NGƯỜI DÙNG</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="popup">
+  <div
+    class="popup-content"
+    style="height: 450px; width: 400px; display: block"
+  >
+    <div
+      style="
+        position: absolute;
+        margin-left: 390px;
+        z-index: 1;
+        margin-bottom: 250px;
+      "
+    >
+      <form action="/adminmain" method="POST">
+        <input type="image" name="thaydoi" src="staff/cross.svg" alt="" />
+      </form>
+    </div>
+    <div
+      class="firsttext"
+      style="position: relative; left: 0px; font-size: 23px; top: 15px"
+    >
+      CẬP NHẬT THÔNG TIN
+    </div>
+    <form action="/doupdateuser" method="POST">
+      <div style="top: 40px; position: relative; left: -10px">
+        <input
+          name="tennguoidung"
+          class="createuser"
+          style="left: 20px; position: relative; top: 8px"
+          placeholder="Tên người dùng"
+          value="<% if (locals.chitiet) { %> <%= chitiet[0].tennguoidung %> <%} %>"
+        />
+      </div>
+      <div style="top: 60px; position: relative; left: 15px">
+        <div
+          class="createuser"
+          name="tendangnhap"
+          style="left: 20px; position: relative; top: 8px"
+        >
+          <%if(locals.chitiet){%><%=chitiet[0].tendangnhap%><%}%>
+        </div>
+      </div>
+      <div style="top: 80px; position: relative; left: -10px">
+        <input
+          name="email"
+          style="left: 20px; position: relative; top: 8px"
+          placeholder="Email"
+          class="createuser"
+          value="<%if(locals.chitiet){%><%=chitiet[0].email%><%}%>"
+        />
+      </div>
+      <div style="top: 100px; position: relative; left: -10px">
+        <input
+          name="sodienthoai"
+          style="left: 20px; position: relative; top: 8px"
+          placeholder="Số điện thoại"
+          class="createuser"
+          value="<%if(locals.chitiet){%><%=chitiet[0].sdt%><%}%>"
+        />
+      </div>
+      <div style="top: 120px; position: relative; left: -10px">
+        <select
+          style="left: 20px; position: relative; top: 8px"
+          name="manhom"
+          class="createuser"
+          required
+        >
+          <option value="" disabled selected hidden>Quyền</option>
+          <option value="0">Admin</option>
+          <option value="1">Staff</option>
+          <option value="2">User</option>
+        </select>
+      </div>
+      <div class="delete" style="position: relative; top: 150px; width: 350px">
+        <button
+          name="tendangnhap"
+          class="textfordelete"
+          type="submit"
+          style="background-color: #f25287; border: none"
+          value="<%if(locals.chitiet){%><%=chitiet[0].tendangnhap%><%}%>"
+        >
+          CẬP NHẬT
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

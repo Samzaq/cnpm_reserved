@@ -1,0 +1,172 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest2">
+    <div class="leftgrid">
+      <div class="table1">
+        <div class="tabletext2">DANH SÁCH SẢNH</div>
+        <div class="intable">
+          <table class="danhsachsanh">
+            <tr>
+              <th>MÃ SẢNH</th>
+              <th>TÊN SẢNH</th>
+              <th>LOẠI SẢNH</th>
+              <th>SỐ LƯỢNG BÀN TỐI ĐA</th>
+              <th>ĐƠN GIÁ BÀN TỐI THIỂU</th>
+            </tr>
+            <tr>
+              <td>S001</td>
+              <td>Bạch kim 1</td>
+              <td>A</td>
+              <td>80</td>
+              <td>10000</td>
+            </tr>
+            <tr>
+              <td>S001</td>
+              <td>Bạch kim 1</td>
+              <td>A</td>
+              <td>80</td>
+              <td>10000</td>
+            </tr>
+            <tr>
+              <td>S001</td>
+              <td>Bạch kim 1</td>
+              <td>A</td>
+              <td>80</td>
+              <td>10000</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="table1">
+        <div class="tabletext2">DANH SÁCH CÁC LOẠI SẢNH</div>
+        <div class="intable">
+          <table class="danhsachsanh">
+            <tr>
+              <th>MÃ SẢNH</th>
+              <th>TÊN LOẠI SẢNH</th>
+              <th>ĐƠN GIÁ BÀN TỐI THIỂU</th>
+              <th>GHI CHÚ</th>
+            </tr>
+            <tr>
+              <td>S001</td>
+              <td>Bạch kim 1</td>
+              <td>A</td>
+              <td>ko có</td>
+            </tr>
+            <tr>
+              <td>S001</td>
+              <td>Bạch kim 1</td>
+              <td>A</td>
+              <td>80</td>
+            </tr>
+            <tr>
+              <td>S001</td>
+              <td>Bạch kim 1</td>
+              <td>A</td>
+              <td>ko có</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="rightgrid">
+      <div class="seconddiv">
+        <div class="bigtext">TIẾP NHẬN SẢNH</div>
+        <div class="thirddiv">
+          <div>
+            <div class="smalltext">Mã sảnh:</div>
+            <div class="showtext2"></div>
+          </div>
+          <div>
+            <div class="smalltext">Tên sảnh:</div>
+            <div class="showtext2"></div>
+          </div>
+          <div>
+            <div class="smalltext">Loại sảnh:</div>
+            <div class="showtext2"></div>
+          </div>
+          <div>
+            <div class="smalltext">Số lượng bàn đối đa:</div>
+            <div class="showtext2"></div>
+          </div>
+          <div>
+            <div class="smalltext">Ghi chú:</div>
+            <div class="showtext2"></div>
+          </div>
+        </div>
+        <div class="buttons">
+          <div class="hoverbutton">
+            <form action="/updatelobby" method="POST">
+              <button type="submit" class="buttontext">CẬP NHẬT</button>
+            </form>
+          </div>
+          <div class="hoverbutton">
+            <form action="/deletelobby" method="POST">
+              <button type="submit" class="buttontext">XÓA SẢNH</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="lastbutton">
+        <div class="buttontext">TẠO SẢNH MỚI</div>
+      </div>
+    </div>
+  </div>
+  <div class="popup">
+    <div
+      class="popup-content"
+      style="height: 450px; width: 400px; display: block"
+    >
+      <div
+        style="
+          position: absolute;
+          margin-left: 380px;
+          z-index: 1;
+          margin-bottom: 250px;
+        "
+      >
+        <form action="/tiepnhansanh" method="POST">
+          <input type="image" name="thaydoi" src="staff/cross.svg" alt="" />
+        </form>
+      </div>
+      <div
+        class="firsttext"
+        style="position: relative; left: 0px; font-size: 23px; top: 15px"
+      >
+        TIẾP NHẬN SẢNH
+      </div>
+      <div class="createuser">
+        <span style="left: 20px; position: relative; top: 8px">Mã sảnh</span>
+      </div>
+      <div class="createuser" style="top: 70px">
+        <span style="left: 20px; position: relative; top: 8px">Tên sảnh</span>
+      </div>
+      <div class="createuser" style="top: 90px">
+        <span style="left: 20px; position: relative; top: 8px">Loại sảnh</span>
+      </div>
+      <div class="createuser" style="top: 110px">
+        <span style="left: 20px; position: relative; top: 8px"
+          >Số lượng bàn tối đa</span
+        >
+      </div>
+      <div class="createuser" style="top: 130px">
+        <!-- <select style="left:20px; position: relative;top: 8px;">
+            <option value="" disabled selected hidden>Quyền</option>
+            <option value="loai0">Admin</option>
+            <option value="loai1">Staff</option>
+            <option value="loai2">User</option>
+            
+          </select> -->
+        <span style="left: 20px; position: relative; top: 8px">Ghi chú</span>
+      </div>
+      <div class="delete" style="position: relative; top: 150px; width: 350px">
+        <span class="textfordelete">TẠO SẢNH MỚI</span>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

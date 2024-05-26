@@ -1,0 +1,58 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <img class="profile" src="staff/profile.svg" alt="" />
+    <div class="info">
+      <div class="banner">THÔNG TIN NGƯỜI DÙNG</div>
+      <div class="table">
+        <div>
+          <div class="tabletext">Tên người dùng:</div>
+          <div class="showinfo">
+            <% if (locals.hovaten) { %> <%= hovaten %> <% } %>
+          </div>
+        </div>
+        <div>
+          <div class="tabletext">Email:</div>
+          <div class="showinfo">
+            <% if (locals.email) { %><%= email %> <%}%>
+          </div>
+        </div>
+        <div>
+          <div class="tabletext">Tên đăng nhập:</div>
+          <div class="showinfo">
+            <% if (locals.name) { %> <%= name %> <% } %>
+          </div>
+        </div>
+        <div>
+          <div class="tabletext">SĐT:</div>
+          <div class="showinfo"><% if (locals.sdt) { %> <%= sdt %> <% } %></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bro">
+      <form method="post" action="/thaydoithongtin">
+        <button
+          name="username"
+          class="headertext"
+          type="submit"
+          value="<%if(locals.name){%><%=name%><%}%>"
+        >
+          THAY ĐỔI THÔNG TIN
+        </button>
+      </form>
+      <form method="post" action="/thaydoimatkhau">
+        <button
+          name="username"
+          class="headertext"
+          type="submit"
+          value="<%if(locals.name){%><%=name%><%}%>"
+        >
+          THAY ĐỔI MẬT KHẨU
+        </button>
+      </form>
+    </div>
+  </div>
+  <%- include("partials/footer.ejs") %>
+</div>

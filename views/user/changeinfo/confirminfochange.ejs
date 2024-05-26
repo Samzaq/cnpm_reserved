@@ -1,0 +1,63 @@
+<%- include("partials/header.ejs") %>
+<div class="container" style="filter: blur(5px)">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <div class="infobar">
+      <div class="textandinput">
+        <div>Họ và tên</div>
+        <div>
+          <input class="enter" name="hovaten" value="<%= hovaten %>" required />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Email</div>
+        <div>
+          <input
+            class="enter"
+            type="email"
+            name="email"
+            value="<%= email %>"
+            required
+          />
+        </div>
+      </div>
+      <div class="textandinput">
+        <div>Số điện thoại</div>
+        <div>
+          <input class="enter" name="sdt" value="<%= sdt %>" required />
+        </div>
+      </div>
+    </div>
+    <div class="changepassbtn">
+      <form action="/confirmchange" method="POST">
+        <input
+          class="passtxt"
+          id="short1"
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="Cập nhật"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+<div class="popup">
+  <div class="popup-content">
+    <div class="firsttext">Xác nhận thay đổi thông tin</div>
+    <div class="secondtext">Thông tin sẽ được thay đổi</div>
+    <div class="confirm">
+      <form action="/main" method="POST">
+        <input
+          class="passtxt"
+          id="short1"
+          class="headertext"
+          type="submit"
+          name="thaydoi"
+          value="XÁC NHẬN"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

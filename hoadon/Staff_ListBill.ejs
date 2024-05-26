@@ -1,0 +1,71 @@
+<%- include("partials/header.ejs") %>
+<style>
+  .buttontext-paid:hover {
+    background-color: #00D67F !important;
+    color: #ebfcf5 !important; 
+    border-color: #00D67F !important; 
+    border-radius: 3px !important;  
+  }
+
+  .buttontext-unpaid:hover { 
+    background-color: #FF0000 !important;
+    color: #ffebeb !important; 
+    border-color: #FF0000 !important; 
+    border-radius: 3px !important;
+  }
+</style>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <h1>Danh sách hóa đơn</h1>
+    <div class="search-bill-id">
+      <form id="form-search-bill-id" action="/timkiemhoadon" method="POST">
+        <input type="text" name="bill_id" placeholder="Tìm kiếm theo mã hóa đơn: " />
+        <button type="submit" for="form-search-bill-id">Tìm kiếm</button>
+      </form>
+    </div>
+
+    <table class="table" id="list-bill-table">
+      <thead>
+        <tr>
+          <th>Mã hóa đơn</th>
+          <th>Số phiếu đặt tiệc</th>
+          <th>Sảnh</th>
+          <th>Ngày đặt tiệc</th>
+          <th>Ngày đãi tiệc</th>
+          <th>Tình trạng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% hoadons.forEach(hoadon => { %>
+          <tr>
+              <td><%= hoadon.mahoadon %></td>
+              <td><%= hoadon.sophieudattiec %></td>
+              <td><%= hoadon.tensanh %></td>
+              <td><%= hoadon.ngaydattiec %></td>
+              <td><%= hoadon.ngaydaitiec %></td>
+              <td>
+                <div class="hoverbutton">
+                  <form action="/chitiethoadon" method="POST">
+                    <input type="hidden" name="bill_id" value="<%= hoadon.mahoadon%>">
+                    <input type="hidden" name="bill_status" value="<%= hoadon.tinhtrang%>">
+                      <% if (hoadon.tinhtrang === 'Đã thanh toán') { %>
+                        <button type="submit" class="buttontext buttontext-paid" style="background-color: #ebfcf5; color: #00D67F; border-color: #ebfcf5; border-radius: 3px;">
+                            <%= hoadon.tinhtrang %>
+                        </button>
+                      <% } else { %>
+                          <button type="submit" class="buttontext buttontext-unpaid" style="background-color: #ffebeb; color: #FF0000; border-color: #ffebeb; border-radius: 3px;">
+                              <%= hoadon.tinhtrang %>
+                          </button>
+                      <% } %>                  
+                    %>
+                  </form>
+                </div>
+              </td>
+          </tr>
+      <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

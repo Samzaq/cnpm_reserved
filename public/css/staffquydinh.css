@@ -1,0 +1,375 @@
+body {
+  margin: 0px;
+}
+
+.container {
+  height: 100vh;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #f25287;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 15vh;
+  margin: 0px;
+}
+
+.rest {
+  margin: 0px;
+  padding: 0px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* align-content: center; */
+  position: relative;
+  background: linear-gradient(
+    217deg,
+    rgba(250, 208, 196, 0.5) 0%,
+    rgba(255, 209, 255, 0.5) 100%
+  );
+}
+
+.circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 88px;
+  height: 88px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 9999px;
+  border: 3px white solid;
+}
+
+.text {
+  width: 68px;
+  height: 46px;
+  color: white;
+  font-size: 50px;
+  font-family: Italianno;
+  font-weight: 400;
+}
+
+.headertext {
+  width: auto;
+  height: auto;
+  color: #f9f3f3;
+  font-size: 24px;
+  font-family: Inter;
+  font-weight: 800;
+  background-color: #f25287;
+  border: none;
+  word-wrap: break-word;
+
+  white-space: normal; /* Allow text to wrap */
+  overflow-wrap: break-word; /* Ensure long words are broken */
+  display: block; /* Ensure block display for proper wrapping */
+  padding: 10px; /* Optional: Add padding for better spacing */
+  text-align: center; /* Optional: Center align text */
+}
+
+#short1 {
+  width: 200px;
+}
+
+#short2 {
+  width: 150px;
+}
+
+.profile {
+  margin: 20px;
+}
+
+.banner {
+  width: 505.29px;
+  height: 34.17px;
+  left: 464px;
+  top: 575px;
+  text-align: center;
+  color: black;
+  font-size: 36px;
+  font-family: Inter;
+  font-weight: 800;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
+  width: 1100px;
+  height: 350px;
+  background: #ffd4d4;
+  border-radius: 12px;
+}
+
+.table {
+  width: 900px;
+  display: grid;
+  grid: 1fr 1fr / 1fr 1fr;
+  justify-content: space-between;
+  gap: 10px;
+  /* margin: 20px; */
+}
+
+.tabletext {
+  width: 343.29px;
+  height: 25.35px;
+  color: black;
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.showinfo {
+  margin-top: 20px;
+  width: 350px;
+  height: 50px;
+  left: 0px;
+  top: 55px;
+  background: white;
+  border-radius: 10px;
+}
+
+/* Thay đổi quy định */
+.sidebar {
+  width: 249px;
+  height: 85vh;
+  /* position: absolute; */
+  background: #dddddd;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.sidebar-item {
+  width: 237px;
+  height: 80px;
+  color: black;
+  font-size: 20px;
+  border: none;
+  background: none;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Nút thêm xóa sửa */
+.buttons-container {
+  /* position: fixed; */
+  bottom: 10px; /* Điều chỉnh khoảng cách bottom tùy ý */
+  right: 10px; /* Điều chỉnh khoảng cách right tùy ý */
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.button-wrapper {
+  width: 230px;
+  height: 66.54px;
+  position: relative;
+}
+
+.button-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #f25287;
+  border-radius: 10px;
+}
+
+.button-style {
+  height: 66.54px;
+  cursor: pointer;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-family: Inter;
+  font-weight: 800;
+  word-wrap: break-word;
+  background: transparent;
+  border: none;
+}
+/* Thêm loại sảnh */
+.popup {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* align-content: center; */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  width: 537px;
+  height: 277px;
+  background: linear-gradient(217deg, #fad0c4 0%, #ffd1ff 100%);
+  border-radius: 23px;
+}
+
+.passtxt {
+  width: 208px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 800;
+  word-wrap: break-word;
+  background-color: #f25287;
+}
+
+.firsttext {
+  width: 424px;
+  left: 53px;
+  top: 30px;
+  text-align: center;
+  color: black;
+  font-size: 28px;
+  font-family: Inter;
+  font-weight: 800;
+  word-wrap: break-word;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Khoảng cách giữa các ô input */
+}
+
+.data input {
+  width: 100%; /* 100% chiều rộng để lấp đầy phần tử cha */
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Đảm bảo rằng padding không làm thay đổi kích thước của input */
+}
+
+/* Thay đổi tham số */
+.main-content {
+  margin: 70px; /* Adjust the margin to position next to the sidebar */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px; /* Add some space between the form groups */
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 600;
+}
+
+.form-group select,
+.form-group input,
+.form-group button {
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.button-thaydoithamso {
+  width: 150px;
+  height: 40px;
+  position: relative;
+}
+
+.rightcontent {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 14%;
+}
+
+.rightcontentthamso {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  /* flex-direction: column; */
+  /* margin-left: 14%; */
+}
+
+.under {
+  display: flex;
+  background: linear-gradient(
+    217deg,
+    rgba(250, 208, 196, 0.5) 0%,
+    rgba(255, 209, 255, 0.5) 100%
+  );
+}
+
+.intable {
+  width: 900px;
+}
+
+.danhsachsanh {
+  background-color: #ededed;
+  border-collapse: collapse;
+  border: 3px #c3c3c3 solid;
+  border-radius: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.danhsachsanh {
+  display: flex;
+  border-spacing: 30px;
+  text-align: center;
+}
+
+.danhsachsanh th,
+td {
+  width: auto;
+  height: 30px;
+  padding: 5px;
+  padding-right: 50px;
+  padding-left: 50px;
+}

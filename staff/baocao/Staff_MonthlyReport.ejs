@@ -1,0 +1,103 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest_report">
+    <span class="reportleft">
+      <form id="form-report" data-method="POST">
+        <label id="reportlabel">Nhập thời gian báo cáo:</label>
+        <select id="months" name="months">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <input type="number" min="1" placeholder="Năm" />
+      </form>
+      <button type="submit" for="form-report">Lập báo cáo</button>
+    </span>
+    <span class="reportright">
+      <table class="table" id="report_table">
+        <thead>
+          <tr>
+            <th>Số thứ tự</th>
+            <th>Ngày</th>
+            <th>Số lượng tiệc cưới</th>
+            <th>Doanh thu</th>
+            <th>Tỉ lệ</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <script>
+        let table_data = [
+          {
+            order: "1",
+            date: "4/5/2024",
+            num: "1",
+            price: "32.000.000",
+            rate: "0.1",
+          },
+          {
+            order: "2",
+            date: "16/5/2024",
+            num: "2",
+            price: "60.000.000",
+            rate: "0.2",
+          },
+          {
+            order: "3",
+            date: "25/5/2024",
+            num: "1",
+            price: "83.000.000",
+            rate: "0.2",
+          },
+          {
+            order: "4",
+            date: "28/5/2024",
+            num: "3",
+            price: "200.000.000",
+            rate: "0.3",
+          },
+          {
+            order: "5",
+            date: "30/5/2024",
+            num: "2",
+            price: "58.000.000",
+            rate: "0.2",
+          },
+        ]; // day la Data ma Back-end gui len UI
+        let table_tbody = document
+          .getElementById("report_table")
+          .getElementsByTagName("tbody")[0];
+
+        for (let i = 0; i < table_data.length; i++) {
+          let row = table_tbody.insertRow();
+          let cell1 = row.insertCell();
+          cell1.innerHTML = table_data[i]?.["order"]; // cho nay dung ?.['...'] (neu khong co field 'code' thi trar ve underfined. Con em .code (neu k cos 'code' se bi loi chuong trinh))
+          let cell2 = row.insertCell();
+          cell2.innerHTML = table_data[i]?.["date"];
+          let cell3 = row.insertCell();
+          cell3.innerHTML = table_data[i]?.["num"];
+          let cell4 = row.insertCell();
+          cell4.innerHTML = table_data[i]?.["price"];
+          let cell5 = row.insertCell();
+          cell5.innerHTML = table_data[i]?.["rate"];
+        }
+      </script>
+    </span>
+    <div class="form-group">
+      <label for="inputField">Tổng doanh thu (VND):</label>
+      <input type="text" id="inputField" class="form-control" />
+      <button id="submitButton" class="btn btn-primary">Xuất file excel</button>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

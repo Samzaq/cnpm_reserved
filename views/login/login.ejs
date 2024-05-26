@@ -1,0 +1,44 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <div class="left">
+    <!-- <div class="signuptext">ĐĂNG KÝ TÀI KHOẢN</div> -->
+    <div class="circle">
+      <h1>W</h1>
+    </div>
+    <div class="second">
+      <h2>Bạn chưa có tài khoản? Đăng kí ngay</h2>
+      <form action="/signup" method="post">
+        <input id="btndangki" value="Đăng kí" type="submit" />
+      </form>
+    </div>
+  </div>
+  <div class="right">
+    <div class="lefttitle">ĐĂNG NHẬP</div>
+    <form action="/dologin" method="post">
+      <div class="inform">
+        <div class="bar">
+          <img class="icon" src="login/icon1.svg" alt="" />
+          <input placeholder="Username" name="username" required />
+        </div>
+        <div class="bar">
+          <img class="icon" src="login/icon2.svg" alt="" />
+          <input
+            placeholder="Password"
+            name="password"
+            required
+            type="password"
+          />
+          <img src="login/icon3.svg" alt="" id="hidepassword" />
+        </div>
+        <input id="btndangki" value="ĐĂNG NHẬP" type="submit" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  <% if (locals.thongbao) { %>
+  alert("<%=thongbao%>");
+  <% } %>
+</script>
+<%- include("partials/footer.ejs") %>

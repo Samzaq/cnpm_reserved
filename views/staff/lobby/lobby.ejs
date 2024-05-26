@@ -1,0 +1,137 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest2">
+    <div class="leftgrid">
+      <div class="table1">
+        <div class="tabletext2">DANH SÁCH SẢNH</div>
+        <div class="intable">
+          <table class="danhsachsanh">
+            <tr>
+              <th>MÃ SẢNH</th>
+              <th>TÊN SẢNH</th>
+              <th>LOẠI SẢNH</th>
+              <th>SỐ LƯỢNG BÀN TỐI ĐA</th>
+              <th>ĐƠN GIÁ BÀN TỐI THIỂU</th>
+              <th>GHI CHÚ</th>
+            </tr>
+            <% if (locals.danhsachsanh) { %> <% for (let i = 0; i <
+            locals.danhsachsanh.length; i++) { %>
+            <%if(locals.danhsachsanh[i].tinhtrang === "Còn phục vụ") { %>
+            <form action="/tiepnhansanh" method="POST">
+              <tr>
+                <td>
+                  <input
+                    name="loaixacdinh"
+                    type="submit"
+                    value="<%= danhsachsanh[i].masanh %>"
+                  />
+                </td>
+                <td><%= danhsachsanh[i].tensanh %></td>
+                <td><%= danhsachsanh[i].maloaisanh %></td>
+                <td><%= danhsachsanh[i].soluongbantoida %></td>
+                <td><%= danhsachsanh[i].dongiabantoithieu %></td>
+                <td><%= danhsachsanh[i].ghichu %></td>
+              </tr>
+            </form>
+            <% }}} %>
+          </table>
+        </div>
+      </div>
+
+      <div class="table2">
+        <div class="tabletext2">DANH SÁCH CÁC LOẠI SẢNH</div>
+        <div class="intable">
+          <table class="danhsachsanh danhsachsanh2">
+            <tr>
+              <th>MÃ SẢNH</th>
+              <th>TÊN LOẠI SẢNH</th>
+              <th>ĐƠN GIÁ BÀN TỐI THIỂU</th>
+            </tr>
+            <% if (locals.danhsachloaisanh) { %> <% for (let i = 0; i <
+            locals.danhsachloaisanh.length; i++) { %>
+            <tr>
+              <td><%= danhsachloaisanh[i].maloaisanh %></td>
+              <td><%= danhsachloaisanh[i].tenloaisanh %></td>
+              <td><%= danhsachloaisanh[i].dongiabantoithieu %></td>
+            </tr>
+            <% } %> <% } %>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="rightgrid">
+      <div class="seconddiv">
+        <div class="bigtext">TIẾP NHẬN SẢNH</div>
+        <div class="thirddiv">
+          <div>
+            <div class="smalltext">Mã sảnh:</div>
+            <div class="showtext2">
+              <% if (locals.sanhhienthi) { %> <%=sanhhienthi.masanh%> <% } %>
+            </div>
+          </div>
+          <div>
+            <div class="smalltext">Tên sảnh:</div>
+            <div class="showtext2">
+              <% if (locals.sanhhienthi) { %> <%=sanhhienthi.tensanh%> <% } %>
+            </div>
+          </div>
+          <div>
+            <div class="smalltext">Loại sảnh:</div>
+            <div class="showtext2">
+              <% if (locals.sanhhienthi) { %> <%=sanhhienthi.maloaisanh%> <% }
+              %>
+            </div>
+          </div>
+          <div>
+            <div class="smalltext">Số lượng bàn đối đa:</div>
+            <div class="showtext2">
+              <% if (locals.sanhhienthi) { %> <%=sanhhienthi.soluongbantoida%>
+              <% } %>
+            </div>
+          </div>
+          <div>
+            <div class="smalltext">Ghi chú:</div>
+            <div class="showtext2">
+              <% if (locals.sanhhienthi) { %> <%=sanhhienthi.ghichu%> <% } %>
+            </div>
+          </div>
+        </div>
+        <div class="buttons">
+          <div class="hoverbutton">
+            <form action="/updatelobby" method="POST">
+              <button
+                type="submit"
+                class="buttontext"
+                value="<%if(locals.sanhhienthi){%><%=sanhhienthi.masanh%><%}%>"
+                name="capnhat"
+              >
+                CẬP NHẬT
+              </button>
+            </form>
+          </div>
+          <div class="hoverbutton">
+            <form action="/deletelobby" method="POST">
+              <button
+                name="masanh"
+                type="submit"
+                class="buttontext"
+                value="<%if(locals.sanhhienthi){%><%=sanhhienthi.masanh%><%}%>"
+              >
+                XÓA SẢNH
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="lastbutton">
+        <form action="/createlobby" method="POST">
+          <button type="submit" class="buttontext">TẠO SẢNH MỚI</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

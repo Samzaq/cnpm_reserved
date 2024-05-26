@@ -1,0 +1,491 @@
+body {
+  margin: 0px;
+  width: 100%;
+}
+
+.container {
+  height: 100vh;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #f25287;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 15vh;
+  margin: 0px;
+}
+
+.rest {
+  margin: 0px;
+  padding: 0px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* align-content: center; */
+  position: relative;
+  background: linear-gradient(
+    217deg,
+    rgba(250, 208, 196, 0.5) 0%,
+    rgba(255, 209, 255, 0.5) 100%
+  );
+}
+
+.circle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 88px;
+  height: 88px;
+  background: rgba(0, 0, 0, 0);
+  border-radius: 9999px;
+  border: 3px white solid;
+}
+
+.text {
+  width: 68px;
+  height: 46px;
+  color: white;
+  font-size: 50px;
+  font-family: Italianno;
+  font-weight: 400;
+}
+
+.headertext {
+  width: auto;
+  height: auto;
+  color: #f9f3f3;
+  font-size: 24px;
+  font-family: Inter;
+  font-weight: 800;
+  background-color: #f25287;
+  border: none;
+  word-wrap: break-word;
+
+  white-space: normal; /* Allow text to wrap */
+  overflow-wrap: break-word; /* Ensure long words are broken */
+  display: block; /* Ensure block display for proper wrapping */
+  padding: 10px; /* Optional: Add padding for better spacing */
+  text-align: center; /* Optional: Center align text */
+}
+
+#short1 {
+  width: 200px;
+}
+
+#short2 {
+  width: 150px;
+}
+
+.profile {
+  margin: 20px;
+}
+
+.banner {
+  width: 505.29px;
+  height: 34.17px;
+  left: 464px;
+  top: 575px;
+  text-align: center;
+  color: black;
+  font-size: 36px;
+  font-family: Inter;
+  font-weight: 800;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* align-content: center; */
+  width: 1100px;
+  height: 350px;
+  background: #ffd4d4;
+  border-radius: 12px;
+}
+/*
+  .table {
+    width: 900px;
+    display: grid;
+    grid: 1fr 1fr / 1fr 1fr;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px; 
+  }
+
+  .tabletext {
+    width: 343.29px;
+    height: 25.35px;
+    color: black;
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 500;
+    margin-top: 10px;
+}
+*/
+.showinfo {
+  margin-top: 20px;
+  width: 350px;
+  height: 50px;
+  left: 0px;
+  top: 55px;
+  background: white;
+  border-radius: 10px;
+}
+
+/*Tan viet css*/
+/* man hinh danh sach hoa don*/
+.rest h1 {
+  padding-right: 740px;
+  font-family: "Inter";
+}
+
+.rest .search-bill-id {
+  position: relative;
+  right: 220px;
+}
+
+.rest .search-bill-id form {
+  display: inline;
+}
+
+.rest .search-bill-id input {
+  height: 30px;
+  width: 450px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rest .search-bill-id button {
+  background-color: #f25287;
+  width: 120px;
+  height: 33px;
+  font-family: "Inter";
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+th {
+  font-size: large;
+  text-align: center !important;
+  min-width: 170px !important;
+  padding: 10px 0px;
+  border-bottom: 2px solid #ccc;
+}
+tbody {
+  text-align: center !important;
+  min-width: 170px !important;
+}
+
+td {
+  border: 1px solid #000;
+}
+
+table {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inter;
+  background-color: #fff;
+}
+
+/* hoa don chua thanh tona - unpaid bill*/
+.rest .subheader svg {
+  margin-top: 2px;
+  height: 40%;
+  display: inline-block;
+  padding-right: 10px;
+  width: 25px;
+}
+.rest .subheader h1 {
+  display: inline-block;
+  /* padding-right: 60px; */
+  font-family: "Inter";
+  height: 40%;
+}
+
+.wrapper {
+  padding: 25px 160px;
+  border: 1px solid rgba(68, 3, 85, 0.4);
+  border-radius: 5px;
+  background-color: lightpink;
+}
+
+.wrapper .row {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Khoảng cách giữa các hàng */
+}
+
+.wrapper .row span {
+  flex: 1;
+  font-family: inter;
+  margin-right: 10px; /* Khoảng cách giữa các cặp label-input */
+}
+
+.wrapper label {
+  width: 150px; /* Độ rộng tối thiểu của label */
+  display: inline-block;
+  text-align: right;
+}
+
+.wrapper .row input {
+  width: 50%; /* Input chiếm toàn bộ phần còn lại của span */
+  border-radius: 5px;
+  border-color: #ccc;
+  height: 30px;
+}
+
+#service-detail {
+  width: 1000px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  font-family: inter;
+  background-color: lightpink;
+}
+
+.wrapper_total {
+  display: flex;
+}
+
+.wrapper_total .left {
+  background-color: lightpink;
+  padding: 15px 25px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column; /* Hiển thị các div con theo chiều dọc */
+  margin-right: 400px;
+}
+
+.wrapper_total .left > div {
+  display: flex;
+  justify-content: space-between; /* Căn trái và phải cho label và input */
+  margin-bottom: 10px; /* Khoảng cách giữa các div */
+  margin-top: 10px;
+}
+
+.wrapper_total .left label {
+  font-family: inter;
+  min-width: 150px; /* Độ rộng tối thiểu của label */
+  text-align: right;
+  margin-right: 10px; /* Khoảng cách giữa label và input */
+}
+
+.wrapper_total .left input {
+  flex: 1; /* Input chiếm toàn bộ phần còn lại của div */
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.wrapper_total .right input {
+  font-family: inter;
+  color: #fff;
+  background-color: #f25287;
+  height: 35px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+/*lap bao cao*/
+
+.rest_report {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  height: 85vh;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  background: linear-gradient(
+    217deg,
+    rgba(250, 208, 196, 0.5) 0%,
+    rgba(255, 209, 255, 0.5) 100%
+  );
+}
+.rest_report .reportleft {
+  display: inline-block;
+  margin-left: 50px;
+  margin-bottom: 120px;
+}
+
+.rest_report .reportright {
+  margin-right: 100px;
+  display: inline-block;
+  height: 120px;
+  width: fit-content;
+}
+#report_table {
+  width: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  font-family: inter;
+  background-color: lightpink;
+}
+
+.report_contain {
+  display: flex;
+}
+.lapbaocaobutton {
+  position: relative;
+  left: -170px;
+}
+#report_table_baocao {
+  width: 500px;
+  margin-right: 0;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  font-family: inter;
+  background-color: lightpink;
+}
+
+.rest_report .reportleft label {
+  font-family: inter;
+  padding-left: 20px;
+}
+
+.rest_report .reportleft select {
+  width: 50px;
+  height: 36px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.rest_report .reportleft input {
+  width: 70px;
+  height: 35px;
+  font-family: inter;
+  font-size: large;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.rest_report .reportleft button {
+  margin-left: 205px;
+  margin-top: 10px;
+  background-color: #f25287;
+  width: 35%;
+  height: 35px;
+  border: 1px solid;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.rest_report .form-group .input-group {
+  display: flex;
+  align-items: center;
+  font-family: inter;
+  margin-top: 250px;
+  padding-right: 120px;
+}
+
+.rest_report .form-group label {
+  font-size: large;
+  margin-right: 10px;
+}
+
+.rest_report .form-group input {
+  height: 35px;
+  width: 150px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.rest_report .form-group button {
+  margin-top: 20px;
+  height: 50px;
+  width: 150px;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #f25287;
+  font-family: "Inter";
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/*tra cuu*/
+
+.wrapper-lookup {
+  margin-top: 50px;
+  padding: 25px 160px;
+  border: 1px solid rgba(68, 3, 85, 0.4);
+  border-radius: 5px;
+  background-color: lightpink;
+}
+
+.wrapper-lookup .row {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Khoảng cách giữa các hàng */
+}
+
+.wrapper-lookup .row span {
+  flex: 1;
+  font-family: inter;
+  margin-right: 10px; /* Khoảng cách giữa các cặp label-input */
+}
+
+.wrapper-lookup label {
+  width: 150px; /* Độ rộng tối thiểu của label */
+  display: inline-block;
+  text-align: right;
+}
+
+.wrapper-lookup .row input {
+  width: 50%; /* Input chiếm toàn bộ phần còn lại của span */
+  border-radius: 5px;
+  border-color: #ccc;
+  height: 30px;
+}
+
+.wrapper-lookup .row select {
+  width: 50%; /* Input chiếm toàn bộ phần còn lại của span */
+  font-family: inter;
+  border-radius: 5px;
+  border-color: #ccc;
+  height: 30px;
+}
+
+.rest .wrapper-lookup button {
+  color: #fff;
+  font-weight: bold;
+  margin-left: 330px;
+  height: 35px;
+  width: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f25287;
+  font-family: inter;
+}

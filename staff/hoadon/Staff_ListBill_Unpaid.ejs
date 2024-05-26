@@ -1,0 +1,173 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="rest">
+    <div class="subheader">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-receipt"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z"
+        />
+        <path
+          d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5"
+        />
+      </svg>
+      <h1>Chi tiết hóa đơn</h1>
+    </div>
+
+    <div class="wrapper">
+      <div class="row">
+        <span>
+          <label for="bill-id">Mã hóa đơn:</label>
+          <input class="form-control" type="text" id="bill-id" readonly />
+        </span>
+        <span>
+          <label for="bill-id">Số phiếu đặt tiệc:</label>
+          <input class="form-control" type="text" id="bill-id" readonly />
+        </span>
+      </div>
+      <div class="row">
+        <span>
+          <label for="bill-id">Tên chú rể:</label>
+          <input class="form-control" type="text" id="bill-id" readonly />
+        </span>
+        <span>
+          <label for="bill-id">Số lượng bàn:</label>
+          <input class="form-control" type="number" id="bill-id" readonly />
+        </span>
+      </div>
+      <div class="row">
+        <span>
+          <label for="bill-id">Tên cô dâu:</label>
+          <input class="form-control" type="text" id="bill-id" readonly />
+        </span>
+        <span>
+          <label for="bill-id">Đơn giá bàn:</label>
+          <input class="form-control" type="number" id="bill-id" readonly />
+        </span>
+      </div>
+      <div class="row">
+        <span>
+          <label for="bill-id">Ngày đãi tiệc:</label>
+          <input class="form-control" type="date" id="bill-id" readonly />
+        </span>
+        <span>
+          <label for="bill-id">Tổng tiền bàn:</label>
+          <input class="form-control" type="number" id="bill-id" readonly />
+        </span>
+      </div>
+    </div>
+    <table class="table" id="service-detail">
+      <thead>
+        <tr>
+          <th>Số thứ tự</th>
+          <th>Tên dịch vụ</th>
+          <th>Số lượng</th>
+          <th>Đơn giá</th>
+          <th>Thành tiền</th>
+          <th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      let table_data = [
+        {
+          order: "1",
+          service_name: "Tung hoa",
+          num: "1",
+          price: "100.000",
+          total_price: "100.000",
+          note: "Hoa huệ đỏ",
+        },
+        {
+          order: "2",
+          service_name: "MC",
+          num: "2",
+          price: "300.000",
+          total_price: "600.000",
+          note: "MC song ngữ đẹp trai hát hay nhảy đẹp có thể nói chuyện không ngừng nghỉ 5 tiếng",
+        },
+        {
+          order: "3",
+          service_name: "Karaoke 2 tiếng",
+          num: "1",
+          price: "150.000",
+          total_price: "300.000",
+          note: "Dàn nhạc im lặng",
+        },
+        {
+          order: "4",
+          service_name: "Trang điểm dâu",
+          num: "3",
+          price: "200.000",
+          total_price: "200.000",
+          note: "Makeup tone thái",
+        },
+        {
+          order: "5",
+          service_name: "Trang trí nhà",
+          num: "2",
+          price: "450.000",
+          total_price: "900.000",
+          note: "Concept anime",
+        },
+      ]; // day la Data ma Back-end gui len UI
+      let table_tbody = document
+        .getElementById("service-detail")
+        .getElementsByTagName("tbody")[0];
+
+      for (let i = 0; i < table_data.length; i++) {
+        let row = table_tbody.insertRow();
+        let cell1 = row.insertCell();
+        cell1.innerHTML = table_data[i]?.["order"]; // cho nay dung ?.['...'] (neu khong co field 'code' thi trar ve underfined. Con em .code (neu k cos 'code' se bi loi chuong trinh))
+        let cell2 = row.insertCell();
+        cell2.innerHTML = table_data[i]?.["service_name"];
+        let cell3 = row.insertCell();
+        cell3.innerHTML = table_data[i]?.["num"];
+        let cell4 = row.insertCell();
+        cell4.innerHTML = table_data[i]?.["price"];
+        let cell5 = row.insertCell();
+        cell5.innerHTML = table_data[i]?.["total_price"];
+        let cell6 = row.insertCell();
+        cell6.innerHTML = table_data[i]?.["note"];
+      }
+    </script>
+    <div class="wrapper_total">
+      <span class="left">
+        <div>
+          <label for="bill-id">Tổng tiền dịch vụ :</label>
+          <input class="form-control" type="number" id="bill-id" readonly />
+        </div>
+        <div>
+          <label for="bill-id">STổng tiền hóa đơn:</label>
+          <input class="form-control" type="number" id="bill-id" readonly />
+        </div>
+        <div>
+          <label for="bill-id">Tiền đặt cọc:</label>
+          <input class="form-control" type="number" id="bill-id" readonly />
+        </div>
+        <div>
+          <label for="bill-id">Còn lại:</label>
+          <input class="form-control" type="number" id="bill-id" readonly />
+        </div>
+      </span>
+
+      <span class="right">
+        <form action="/stafflistbill" method="GET">
+          <input id="btn_pay" value="XÁC NHẬN THANH TOÁN" type="submit" />
+        </form>
+        <form action="/stafflistbill" method="GET">
+          <input id="btn_exit" value="THOÁT" type="submit" />
+        </form>
+      </span>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

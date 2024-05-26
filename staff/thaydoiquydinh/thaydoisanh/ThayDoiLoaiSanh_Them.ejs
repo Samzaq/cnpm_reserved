@@ -1,0 +1,152 @@
+<%- include("partials/header.ejs") %>
+<div class="container">
+  <%- include("partials/headerbar.ejs") %>
+  <div class="under">
+    <div class="sidebar">
+      <form action="/loaisanh" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="loaisanh"
+          value="DANH SÁCH LOẠI SẢNH"
+          style="color: green"
+        />
+      </form>
+      <form action="/ca" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="ca"
+          value="DANH SÁCH CA"
+        />
+      </form>
+      <form action="/monan" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="monan"
+          value="DANH SÁCH MÓN ĂN"
+        />
+      </form>
+      <form action="/dichvu" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="dichvu"
+          value="DANH SÁCH DỊCH VỤ"
+        />
+      </form>
+      <form action="/thamso" method="POST">
+        <input
+          type="submit"
+          class="sidebar-item"
+          name="thamso"
+          value="THAM SỐ KHÁC"
+        />
+      </form>
+    </div>
+    <div class="rightcontent">
+      <div class="intable">
+        <table class="danhsachsanh">
+          <tr>
+            <th>STT</th>
+            <th>MÃ LOẠI SẢNH</th>
+            <th>TÊN LOẠI SẢNH</th>
+            <th>ĐƠN GIÁ BÀN TỐI THIỂU</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>LS01</td>
+            <td>SẢNH HOA HỒNG</td>
+            <td>20.000.000</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>LS01</td>
+            <td>SẢNH HOA HỒNG</td>
+            <td>20.000.000</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>LS01</td>
+            <td>SẢNH HOA HỒNG</td>
+            <td>20.000.000</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>LS01</td>
+            <td>SẢNH HOA HỒNG</td>
+            <td>20.000.000</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>LS01</td>
+            <td>SẢNH HOA HỒNG</td>
+            <td>20.000.000</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>LS01</td>
+            <td>SẢNH HOA HỒNG</td>
+            <td>20.000.000</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>LS01</td>
+            <td>SẢNH HOA HỒNG</td>
+            <td>20.000.000</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>LS01</td>
+            <td>SẢNH HOA HỒNG</td>
+            <td>20.000.000</td>
+          </tr>
+        </table>
+      </div>
+      <div class="buttons-container">
+        <!-- Nút Thêm -->
+        <div class="button-wrapper">
+          <form action="/themloaisanh" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Thêm</button>
+          </form>
+        </div>
+        <!-- Nút Xóa -->
+        <div class="button-wrapper">
+          <form action="/xoaloaisanh" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Xóa</button>
+          </form>
+        </div>
+        <!-- Nút Sửa -->
+        <div class="button-wrapper">
+          <form action="/sualoaisanh" method="POST">
+            <div class="button-background"></div>
+            <button type="submit" class="button-style">Sửa</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup">
+    <div class="popup-content">
+      <div class="firsttext">THÊM LOẠI SẢNH</div>
+      <div class="data">
+        <input type="text" placeholder="Mã loại sảnh" />
+        <input type="text" placeholder="Tên loại sảnh" />
+        <input type="number" placeholder="Đơn giá bàn tối thiểu" />
+      </div>
+      <div class="themloaisanh">
+        <form action="/themloaisanhngay" method="POST">
+          <input
+            class="passtxt"
+            type="submit"
+            name="thaydoi"
+            value="TẠO NGAY"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
